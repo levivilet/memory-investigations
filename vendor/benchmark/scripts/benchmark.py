@@ -230,6 +230,10 @@ def trial(editor, budget, repeat, args, user):
         home = Path(temporary)
         file = home / 'memory-benchmark.txt'
         file.write_text(FIXTURE)
+        if args.workspace_kind == 'git':
+            run(['git', 'init', '--initial-branch=memory-experiment', home])
+            run(['git', '-C', home, 'add', file.name])
+            run(['git', '-C', home, '-c', 'user.name=Memory Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Fixture'])
         # IDEA creates transient startup windows; other editors may not title their file.
         window_title = file.name if editor['id'] in ('idea', 'theia') else None
         command = [editor['command'], *profile_config(editor, home)]
@@ -359,6 +363,7 @@ def main():
     parser.add_argument('--probes', type=int, default=3)
     parser.add_argument('--startup-timeout', type=int, default=25)
     parser.add_argument('--probe-timeout', type=int, default=5)
+    parser.add_argument('--workspace-kind', choices=['plain', 'git'], default='plain')
     parser.add_argument('--seed', type=int, default=1729)
     parser.add_argument('--output', type=Path, default=ROOT / 'results/results.json')
     args = parser.parse_args()

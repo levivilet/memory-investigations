@@ -1,0 +1,444 @@
+{
+  "mode": "renderer-chunks",
+  "applicationCommit": "9637939",
+  "electronVersion": "44.3.0",
+  "runtimeArchiveSha256": "8b49b9efdd73c0f467edc3c1cd5678392c384ccf224f34ff54179f736e2f384b",
+  "applicationArchiveSha256": "27d8fd309117f4d3698431b2a46904778bd1e6e2f60e2a8f6501c3fdc946e4b9",
+  "changes": [
+    {
+      "file": "static/9637939/packages/update-worker/dist/updateWorkerMain.memory.js",
+      "before": 0,
+      "after": 38316,
+      "sha256": "058fa7ea78a18b8b1079d796021ca7d614b17d7a905490246c6b807988adbd18"
+    },
+    {
+      "file": "static/9637939/packages/title-bar-worker/dist/titleBarWorkerMain.memory.js",
+      "before": 0,
+      "after": 142114,
+      "sha256": "0a3a217285d7f4581e22f6a16626a4d662fe404b90a4344e832d0f677a1a562a"
+    },
+    {
+      "file": "static/9637939/packages/text-search-worker/dist/textSearchWorkerMain.memory.js",
+      "before": 0,
+      "after": 43381,
+      "sha256": "6591cdd5f40750fe976876a0c16f2b93ae9524ff723c871c5ee57a47122c04af"
+    },
+    {
+      "file": "static/9637939/packages/text-measurement-worker/dist/textMeasurementWorkerMain.memory.js",
+      "before": 0,
+      "after": 38706,
+      "sha256": "4cfccdf624da8da180d69731baf89b223527cb5b7b5d11fc7844be59a0f64ac7"
+    },
+    {
+      "file": "static/9637939/packages/test-worker/dist/testWorkerMain.memory.js",
+      "before": 0,
+      "after": 212467,
+      "sha256": "b480e5cc24a76724890585098072fc85a3278dad9b18d651ba336dba6beceffc"
+    },
+    {
+      "file": "static/9637939/packages/terminal-worker/dist/terminalWorkerMain.memory.js",
+      "before": 0,
+      "after": 49060,
+      "sha256": "ce181fd14f1f15b0752705701db16c7c62c10b0ec6062f310f1e9c704d183b21"
+    },
+    {
+      "file": "static/9637939/packages/syntax-highlighting-worker/dist/syntaxHighlightingWorkerMain.memory.js",
+      "before": 0,
+      "after": 40154,
+      "sha256": "4ce486321c4f5f2a2ca5ef70dd509ad532f2e64d7861097718d9fd498bea3cc6"
+    },
+    {
+      "file": "static/9637939/packages/status-bar-worker/dist/statusBarWorkerMain.memory.js",
+      "before": 0,
+      "after": 67653,
+      "sha256": "3460449b9525f2a516083dd8e7a80224aad82b7fbcf3af900779bfc8608d2d7d"
+    },
+    {
+      "file": "static/9637939/packages/source-control-worker/dist/sourceControlWorkerMain.memory.js",
+      "before": 0,
+      "after": 119772,
+      "sha256": "b71fd7bf639b44c9641c5a5bc5ee75bdd212dba5ed86d3c84b4db8ce1334db32"
+    },
+    {
+      "file": "static/9637939/packages/source-action-worker/dist/sourceActionWorkerMain.memory.js",
+      "before": 0,
+      "after": 54906,
+      "sha256": "ea97668e284255685aaae42b7c56eb8c5edf1edef44758624977d24429105de6"
+    },
+    {
+      "file": "static/9637939/packages/simple-browser-view/dist/simpleBrowserViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 55660,
+      "sha256": "945e09ed6b2ba28ce026f15676e43fb61e7277c937cf7223229cdb3193267fa6"
+    },
+    {
+      "file": "static/9637939/packages/settings-worker/dist/settingsWorkerMain.memory.js",
+      "before": 0,
+      "after": 47864,
+      "sha256": "f4d8b78118c48a11dd55d76476691d587cddd41925b4e863c9137eae3e834ef6"
+    },
+    {
+      "file": "static/9637939/packages/settings-view/dist/settingsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 111728,
+      "sha256": "82dfb5a96a9a82ec55fe61c0cbdc520bec3ef48a93519183a3386df189d7d86b"
+    },
+    {
+      "file": "static/9637939/packages/secrets-view/dist/secretsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 58450,
+      "sha256": "b27ed947874d33ed0aed04a9bd1c3966cae3015d69867508a491ea1fa3ca06ba"
+    },
+    {
+      "file": "static/9637939/packages/renderer-worker/dist/rendererWorkerMain.memory.js",
+      "before": 0,
+      "after": 1301676,
+      "sha256": "39aa9e5138a4d029849264f93b7c72e4ce24ee88667a730e0a8ebf03698c77ff"
+    },
+    {
+      "file": "static/9637939/packages/renderer-process/dist/sessionReplayWorkerMain.memory.js",
+      "before": 0,
+      "after": 43281,
+      "sha256": "ec50685918fd1276037b4513e2cd637c45d3fb266632b6820c8f70a46d05f546"
+    },
+    {
+      "file": "static/9637939/packages/rename-worker/dist/renameWorkerMain.memory.js",
+      "before": 0,
+      "after": 52621,
+      "sha256": "977ef2b1980bda621c7d98b1c4d419c2b338be5c8119686400ad6d1b152d9bab"
+    },
+    {
+      "file": "static/9637939/packages/references-view/dist/referencesViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 66191,
+      "sha256": "b04bb96cc394ba55998f3c8bd28ebf47aff2509a83f3398f2f43c3bc1cbe8d67"
+    },
+    {
+      "file": "static/9637939/packages/quick-pick-worker/dist/quickPickWorkerMain.memory.js",
+      "before": 0,
+      "after": 136667,
+      "sha256": "b6a3cec28c4787ecf00df27010431028822a3e2a6dfa31ae96a1995c80c9b9cd"
+    },
+    {
+      "file": "static/9637939/packages/problems-view/dist/problemsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 98506,
+      "sha256": "b6ef965e6bf52e252f64e25549cebaf6f498715ca24859b67ee2e622968af342"
+    },
+    {
+      "file": "static/9637939/packages/preview-worker/dist/previewWorkerMain.memory.js",
+      "before": 0,
+      "after": 132594,
+      "sha256": "76cd58ba53417d31d50a0be5e89bd7c875b90ae02bd94f9fa0930222484bff93"
+    },
+    {
+      "file": "static/9637939/packages/preview-sandbox-worker/dist/previewSandBoxWorkerMain.memory.js",
+      "before": 0,
+      "after": 2078627,
+      "sha256": "848cb3636da08b520f6f03fa8ae5566e11a21120a1698ce5905b04fd45e27709"
+    },
+    {
+      "file": "static/9637939/packages/ports-view/dist/portsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 66348,
+      "sha256": "f36c5e94271c1105bfcc235be6ba66372ad34d3f4cf173daee14a9fe17945f7c"
+    },
+    {
+      "file": "static/9637939/packages/panel-worker/dist/panelWorkerMain.memory.js",
+      "before": 0,
+      "after": 62150,
+      "sha256": "0a3ded9f7a56583494876846d66774a511fbbe510f9e1a552c08dc596313f57d"
+    },
+    {
+      "file": "static/9637939/packages/output-view/dist/outputViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 75304,
+      "sha256": "0fecbb7d12e8b6cec9d0af718de786efe1fc1c5bfc99fae3ee150052cda89032"
+    },
+    {
+      "file": "static/9637939/packages/opener-worker/dist/openerWorkerMain.memory.js",
+      "before": 0,
+      "after": 32089,
+      "sha256": "3e338cd8bfceb405acf305f415fb75fc409a942afdb015e4469af208a2d14828"
+    },
+    {
+      "file": "static/9637939/packages/notification-center-view/dist/notificationCenterWorkerMain.memory.js",
+      "before": 0,
+      "after": 88317,
+      "sha256": "1ace1caec5403fd0ea292c4ba952b774c4ce177920c4b6b3a8e00699747bafcc"
+    },
+    {
+      "file": "static/9637939/packages/menu-worker/dist/menuWorkerMain.memory.js",
+      "before": 0,
+      "after": 80773,
+      "sha256": "a5b8153c770de6e2623e8899760ae605d8e0b6bbdffb55603f0d517a70766c30"
+    },
+    {
+      "file": "static/9637939/packages/markdown-worker/dist/markdownWorkerMain.memory.js",
+      "before": 0,
+      "after": 105243,
+      "sha256": "92e824e5d53ed3b825ae2b551d37db592aeddf12e57a457a7dbf9495f39114ab"
+    },
+    {
+      "file": "static/9637939/packages/main-area-worker/dist/mainAreaWorkerMain.memory.js",
+      "before": 0,
+      "after": 252525,
+      "sha256": "19a4a90ff0cf6196b03f31282707b331502b13ad48abc37254c420a631e7581c"
+    },
+    {
+      "file": "static/9637939/packages/keybindings-view-worker/dist/keyBindingsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 129853,
+      "sha256": "bb6e56cac3bbce4ce899c486559a469de7c7b23d6394f47cd153407dc65ffb0a"
+    },
+    {
+      "file": "static/9637939/packages/iframe-worker/dist/iframeWorkerMain.memory.js",
+      "before": 0,
+      "after": 70903,
+      "sha256": "437716018bd6522ea801f7d4d4bed9365da0db81962e297b711209c9e79bd7b4"
+    },
+    {
+      "file": "static/9637939/packages/iframe-inspector/dist/iframeInspectorWorkerMain.memory.js",
+      "before": 0,
+      "after": 67785,
+      "sha256": "52cf7c2da73eaa24814f6ea0aceaf296b698a65fd9b5f2337ec4d64b4b8e5441"
+    },
+    {
+      "file": "static/9637939/packages/icon-theme-worker/dist/iconThemeWorkerMain.memory.js",
+      "before": 0,
+      "after": 42605,
+      "sha256": "350199b5b812346b62148fbb2b46c3decc6fc7a8012745d794a1189eae3c7852"
+    },
+    {
+      "file": "static/9637939/packages/hover-worker/dist/hoverWorkerMain.memory.js",
+      "before": 0,
+      "after": 48499,
+      "sha256": "4b44743e51f262dc15dcebf3d955b54e4c415836bb4e3f689a4c1b387d7c9103"
+    },
+    {
+      "file": "static/9637939/packages/find-widget-worker/dist/findWidgetWorkerMain.memory.js",
+      "before": 0,
+      "after": 92871,
+      "sha256": "27d2c9a25cbe8f326f39b34fa92923c7ae882cebf0859005a1201da448c45829"
+    },
+    {
+      "file": "static/9637939/packages/file-system-worker/dist/fileSystemWorkerMain.memory.js",
+      "before": 0,
+      "after": 69574,
+      "sha256": "be17da89f11eab06ab16d6b8ed40198355b933f5cad75cb0e3258274c1635747"
+    },
+    {
+      "file": "static/9637939/packages/file-search-worker/dist/fileSearchWorkerMain.memory.js",
+      "before": 0,
+      "after": 32577,
+      "sha256": "dfe5ed14e33786335e8c0da68574d06a338195e67af21ef58f5db96c63a446c1"
+    },
+    {
+      "file": "static/9637939/packages/extension-search-view-worker/dist/extensionSearchViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 146425,
+      "sha256": "50d51a4d22af651cac6c7aa3a280fd23ab471d2b0586767d41b0c0075cd3b473"
+    },
+    {
+      "file": "static/9637939/packages/extension-management-worker/dist/extensionManagementWorkerMain.memory.js",
+      "before": 0,
+      "after": 208707,
+      "sha256": "473c684d5987f102318d9bc6ca177b78cbc2f2870f627ed10b33bbd3b51310a5"
+    },
+    {
+      "file": "static/9637939/packages/extension-host-sub-worker/dist/extensionHostSubWorkerMain.memory.js",
+      "before": 0,
+      "after": 28498,
+      "sha256": "008bbf9fd890e607559f0829c571cc9a304a446948ecd637aab6b5bbda3659b4"
+    },
+    {
+      "file": "static/9637939/packages/extension-detail-view-worker/dist/extensionDetailViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 217862,
+      "sha256": "b4e64637c76d12f18d289888d79721aa6a1149ed117727e85ce63019a75992aa"
+    },
+    {
+      "file": "static/9637939/packages/explorer-worker/dist/explorerViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 246558,
+      "sha256": "4b3e2411ec7db7c86efabc2dbc6fece70189ef7606012515f26a8d42f6ad5178"
+    },
+    {
+      "file": "static/9637939/packages/error-worker/dist/errorWorkerMain.memory.js",
+      "before": 0,
+      "after": 720634,
+      "sha256": "1f4a17f81265d779787604062c91c235a99f9da29f6811857b4ae24b39501025"
+    },
+    {
+      "file": "static/9637939/packages/embeds-worker/dist/embedsWorkerMain.memory.js",
+      "before": 0,
+      "after": 35369,
+      "sha256": "5d2d0125249007c8db25a0789e196ec69f31e5d553cf0597ad617c1c3ddbfd10"
+    },
+    {
+      "file": "static/9637939/packages/editor-worker/dist/editorWorkerMain.memory.js",
+      "before": 0,
+      "after": 522240,
+      "sha256": "55fc2b3ce92e36a4364492855b249dbb4e8aafddd54c20eedb99650e64ba0a44"
+    },
+    {
+      "file": "static/9637939/packages/drag-and-drop-worker/dist/dragAndDropWorkerMain.memory.js",
+      "before": 0,
+      "after": 35465,
+      "sha256": "58dbc0b0e3c7eab0ad4b4e609f3135ac253a0c9c3d1355f3ecb513b67653509d"
+    },
+    {
+      "file": "static/9637939/packages/diff-worker/dist/diffWorkerMain.memory.js",
+      "before": 0,
+      "after": 34948,
+      "sha256": "3422cb8e474a949f3570dddb2ba64575d967b5f21a66dc86e00a3caf4b501730"
+    },
+    {
+      "file": "static/9637939/packages/diff-view/dist/diffViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 169156,
+      "sha256": "5d9c7317ad06e104a66c1b7b68f34dce40b7cc996131717553d233cbf1b498c3"
+    },
+    {
+      "file": "static/9637939/packages/dialog-worker/dist/dialogWorkerMain.memory.js",
+      "before": 0,
+      "after": 52733,
+      "sha256": "d24bb5917bdbf61f9a7c05a3f0a9f3f70d40586c07b08025f864cbdc9b7be652"
+    },
+    {
+      "file": "static/9637939/packages/debug-worker/dist/debugWorkerMain.memory.js",
+      "before": 0,
+      "after": 156042,
+      "sha256": "7c3dd48cf044522ed39fa4ae31fde5067fc835e9566431fad12279af5d93bc25"
+    },
+    {
+      "file": "static/9637939/packages/cookie-import-view/dist/cookieImportViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 48094,
+      "sha256": "fadc0e546827466e2dc8e3e656f94cc868adc5867b6a8858a2337b2cd49b6f95"
+    },
+    {
+      "file": "static/9637939/packages/component-state-worker/dist/componentStateWorkerMain.memory.js",
+      "before": 0,
+      "after": 53059,
+      "sha256": "f22874e0c2922eae78083853265b2080374ef4670602059cc192cd5403355642"
+    },
+    {
+      "file": "static/9637939/packages/completion-worker/dist/completionWorkerMain.memory.js",
+      "before": 0,
+      "after": 72120,
+      "sha256": "eb5196985f178daac50e7a8996e90fe6f4dd149f6da440706786d30887d0e644"
+    },
+    {
+      "file": "static/9637939/packages/color-picker-worker/dist/colorPickerWorkerMain.memory.js",
+      "before": 0,
+      "after": 57329,
+      "sha256": "333a1e88e37b341da4f4ab83ba2d4f8c78441d366edb9fc954d4f94cf0ec3bb8"
+    },
+    {
+      "file": "static/9637939/packages/clipboard-worker/dist/clipBoardWorkerMain.memory.js",
+      "before": 0,
+      "after": 35202,
+      "sha256": "95661fa52491804605e1bfa2c3c9362092e4afc2f9a09f25587fdc3994bdf008"
+    },
+    {
+      "file": "static/9637939/packages/chat-view-model/dist/chatViewModelWorkerMain.memory.js",
+      "before": 0,
+      "after": 94134,
+      "sha256": "279f5d7efc57ef7525e7db0a564aea12e6acacd8572a01cbd2173f955f3bbcea"
+    },
+    {
+      "file": "static/9637939/packages/chat-view/dist/chatViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 395225,
+      "sha256": "29681d3a2e25ea90a0fda1a5b488ccbdf4d54238a20da30f9776cd0418c8ce34"
+    },
+    {
+      "file": "static/9637939/packages/chat-tool-worker/dist/chatToolWorkerMain.memory.js",
+      "before": 0,
+      "after": 96496,
+      "sha256": "1c48e4d9ec76822daa6fd19f2c1afbc67a379cfb8733d9283678c70eda57cfa6"
+    },
+    {
+      "file": "static/9637939/packages/chat-storage-worker/dist/chatStorageWorkerMain.memory.js",
+      "before": 0,
+      "after": 89133,
+      "sha256": "59a58abbf06abb8f692cd942f12d3c4045e8a00badd884c75991a14e9d8c19a6"
+    },
+    {
+      "file": "static/9637939/packages/chat-network-worker/dist/chatNetworkWorkerMain.memory.js",
+      "before": 0,
+      "after": 28977,
+      "sha256": "8f989191a332fe254ad22e337c6fb40ec2845b87ffffe83bdec637941405a531"
+    },
+    {
+      "file": "static/9637939/packages/chat-message-parsing-worker/dist/chatMessageParsingWorkerMain.memory.js",
+      "before": 0,
+      "after": 63632,
+      "sha256": "1eb7261a0589c7319cd9f0c212a0b6ca4b9975ee24359f6cf7ff3ff8a41fc18b"
+    },
+    {
+      "file": "static/9637939/packages/chat-math-worker/dist/chatMathWorkerMain.memory.js",
+      "before": 0,
+      "after": 630853,
+      "sha256": "063b84b92312adcaed8baa6a9ee67a29ec8fb99ec0c8700022a8790bbb3b9601"
+    },
+    {
+      "file": "static/9637939/packages/chat-debug-view/dist/chatDebugViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 292109,
+      "sha256": "30d302c0f37f9390fb14c76aaf4c36d10eae5468fee92cd761cce32ae9587008"
+    },
+    {
+      "file": "static/9637939/packages/chat-coordinator-worker/dist/chatCoordinatorWorkerMain.memory.js",
+      "before": 0,
+      "after": 91002,
+      "sha256": "6e935d7a52166fe024944784089df66cceccd4ef39b5c34f2d7532018d771ca8"
+    },
+    {
+      "file": "static/9637939/packages/auth-worker/dist/authWorkerMain.memory.js",
+      "before": 0,
+      "after": 97975,
+      "sha256": "d9735e3642f589cb48346e6640f5639af8aa58dd4461b095cdd280d0dc4cd798"
+    },
+    {
+      "file": "static/9637939/packages/activity-bar-worker/dist/activityBarWorkerMain.memory.js",
+      "before": 0,
+      "after": 99230,
+      "sha256": "da86584595ea0ce481be9c411e42041bc9b35f0ae72e72630510c3c55bfab1d9"
+    },
+    {
+      "file": "static/9637939/packages/about-view-worker/dist/aboutWorkerMain.memory.js",
+      "before": 0,
+      "after": 61370,
+      "sha256": "b665cbd7ec59d90914116c5b56088239353979e97974bc8d74fd2571bc1a6ebb"
+    },
+    {
+      "file": "static/9637939/extensions/builtin.git/git-worker/dist/gitWorkerMain.memory.js",
+      "before": 0,
+      "after": 90508,
+      "sha256": "eaf2b12012d4bad9c5d0177b127081eacdbfcb75c505cba39eff8bca2c9dfe87"
+    },
+    {
+      "file": "static/9637939/extensions/builtin.git/dist/gitMain.memory.js",
+      "before": 0,
+      "after": 99496,
+      "sha256": "cfe1f0b765cc9c027697eebde85c80e489605a8ef4983b5de279d824cfd86821"
+    },
+    {
+      "file": "config.json",
+      "before": 238722,
+      "after": 244584,
+      "beforeSha256": "94dd7f477bd24609d1cc9e0c6a5fd89d83c45f67a75e1f4bd569d34682a13645",
+      "sha256": "b41d6d1b77bc7b4e49b73705b0a9e08effa0ca854edfc859261d10ea54c639b3"
+    },
+    {
+      "file": "static/9637939/packages/renderer-process/dist/rendererProcessMain.js",
+      "before": 695056,
+      "after": 695183,
+      "beforeSha256": "91b74e3a92997d05ad3a9354b0219a21ffe83a644b640e9c59c5ef22baa12df5",
+      "sha256": "165dd17c131c6254f4b9d3dd68c3e22eeb78345b2a0e8a30ac7016246d56283a"
+    }
+  ],
+  "timestamp": "2026-09-14T10:01:23.189Z"
+}

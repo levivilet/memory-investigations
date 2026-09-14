@@ -34,12 +34,18 @@ setTimeout(async () => {
       })
       evidence.renderer = { pid: wc.getOSProcessId(), url: wc.getURL(), heap: await debug.sendCommand('Runtime.getHeapUsage') }
       await debug.sendCommand('Target.setAutoAttach', { autoAttach: true, waitForDebuggerOnStart: false, flatten: true })
+      evidence.renderer.chunks = (await debug.sendCommand('Runtime.evaluate', {expression:'globalThis.__memoryChunks || []', returnByValue:true})).result.value
       evidence.dom = await debug.sendCommand('Memory.getDOMCounters')
       await debug.sendCommand('HeapProfiler.collectGarbage')
       evidence.renderer.heapAfterGc = await debug.sendCommand('Runtime.getHeapUsage')
     }
   } catch (e) { evidence.errors.push(e.stack) }
-  setTimeout(() => {
+  setTimeout(async () => {
+    // Capture chunks at the end too, just as auto-attach records workers created during the probe.
+    try {
+      const window = webContents.getAllWebContents().find(w => w.getType() === 'window')
+      if (window) evidence.renderer.chunks = (await window.debugger.sendCommand('Runtime.evaluate', {expression:'globalThis.__memoryChunks || []', returnByValue:true})).result.value
+    } catch (error) { evidence.errors.push(error.message) }
     fs.mkdirSync(output, {recursive:true})
     fs.writeFileSync(path.join(output, 'diagnostics.json'), JSON.stringify(evidence, null, 2))
   }, 5000)

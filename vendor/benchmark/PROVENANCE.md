@@ -7,3 +7,5 @@ post-measurement CDP diagnostics. Only scripts used by the investigation are ret
 Electron update: the installer preserves LVCE application resources while replacing
 the complete runtime using the checksum-pinned override in editors.lock.json.
 It verifies the installed runtime version; basic-app preparation requires matching pins.
+
+Production-patch follow-up: the installer now clears an extracted app before unpacking, preventing generated patch files from leaking into subsequent controls. The observer accepts `--workspace-kind git` for a small committed Git fixture; the default plain-file workload is unchanged. The fixture is created before timing and remains inside the isolated profile directory.
