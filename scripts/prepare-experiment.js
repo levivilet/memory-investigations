@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process'
 import { cp, readFile, writeFile, readdir, rm, mkdir } from 'node:fs/promises'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
@@ -14,6 +15,11 @@ const basic = lock.find(e => e.id === 'basic-electron')
 const runtime = lock.find(e => e.id === 'lvce').runtime
 if (!runtime || basic.version !== runtime.version || basic.sha256 !== runtime.sha256) throw new Error('LVCE and basic Electron must use the same pinned runtime')
 const electronVersion = runtime.version.replace('Electron ', '')
+const installedVersion = execFileSync(path.join(lvce, 'lvce'), ['-p', 'process.versions.electron'], {
+  encoding: 'utf8',
+  env: { ...process.env, ELECTRON_RUN_AS_NODE: '1' },
+}).trim()
+if (installedVersion !== electronVersion) throw new Error(`Installed Electron ${installedVersion} does not match pinned ${electronVersion}; rerun the installer`)
 await rm(path.join(apps, 'basic-electron'), { recursive: true, force: true })
 await cp(lvce, path.join(apps, 'basic-electron'), { recursive: true })
 await rm(path.join(apps, 'basic-electron/resources/app'), { recursive: true })
