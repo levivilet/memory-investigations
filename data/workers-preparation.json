@@ -1,6 +1,7 @@
 {
   "mode": "workers",
-  "electronVersion": "43.1.0",
+  "electronVersion": "44.3.0",
+  "stockApplicationElectronVersion": "43.1.0",
   "changes": [],
-  "timestamp": "2026-09-14T06:37:41.855Z"
+  "timestamp": "2026-09-14T06:57:33.522Z"
 }

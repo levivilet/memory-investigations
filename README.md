@@ -14,7 +14,8 @@ older capture. LVCE bundles Electron 43.1.0; the original basic app uses 40.0.0.
 New runs use a checksum-pinned Electron 44.3.0 runtime for both LVCE and the basic
 editor, preserving LVCE v0.114.2 application bytes. The bundled version in the stock
 application config remains 43.1.0; the runtime override and its checksum are recorded
-separately. Existing evidence stays labeled with its original runtime until rerun.
+separately. The current report uses fresh 44.3.0 evidence; [43.1 findings](history/electron-43.1.0.md)
+and `data/electron43-matched.json` retain the historical comparison.
 
 ## Build the report
 
@@ -28,7 +29,8 @@ npm run build
 python3 -m http.server 8080 --directory .tmp/pages
 ```
 
-`site/index.html` contains the prose; `scripts/build-report.js` recomputes all tables
+`site/index.html` contains the prose; `scripts/report-summaries.js` derives numerical
+prose from the same evidence as the tables; `scripts/build-report.js` recomputes all tables
 from `data/*.json`, creates a SHA-256 manifest, and copies the evidence into Pages.
 `site/app.js` enhances the pre-rendered tables with dataset and metric selectors.
 The static report remains readable with JavaScript disabled.

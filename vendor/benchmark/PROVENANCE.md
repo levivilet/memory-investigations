@@ -3,3 +3,7 @@ Vendored from https://github.com/levivilet/lvce-memory-benchmark at
 Local changes: process command line / parent / thread metadata and anonymous/file/shared
 PSS; preserve real HOME while isolating XDG state; matched-runtime baseline; optional
 post-measurement CDP diagnostics. Only scripts used by the investigation are retained.
+
+Electron update: the installer preserves LVCE application resources while replacing
+the complete runtime using the checksum-pinned override in editors.lock.json.
+It verifies the installed runtime version; basic-app preparation requires matching pins.

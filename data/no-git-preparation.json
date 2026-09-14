@@ -1,11 +1,12 @@
 {
   "mode": "no-git",
-  "electronVersion": "43.1.0",
+  "electronVersion": "44.3.0",
+  "stockApplicationElectronVersion": "43.1.0",
   "changes": [
     {
       "file": "static/9637939/extensions/builtin.git/extension.json",
       "change": "disabled: true; diagnostic ablation removes Git functionality"
     }
   ],
-  "timestamp": "2026-09-14T06:37:41.614Z"
+  "timestamp": "2026-09-14T06:57:45.168Z"
 }
