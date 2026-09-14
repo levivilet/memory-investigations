@@ -2,7 +2,7 @@ import {execFileSync} from 'node:child_process'
 import { readFile, writeFile, readdir, mkdir, cp, rm } from 'node:fs/promises'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
-import { minify } from 'terser'
+import { minifyJavaScript } from './patches/minify-javascript.js'
 import { rollup } from 'rollup'
 const mode = process.argv[2]
 const receiptDirectory = process.env.MEMORY_PATCH_RECEIPTS || 'results'
@@ -87,9 +87,14 @@ if (mode === 'combined') {
   await edit(`static/${config.commit}/packages/extension-management-worker/dist/extensionManagementWorkerMain.js`, text => {
     const helper = gitDetection.replace('export const ', 'const ') + '\n'
     text = replace(text, 'const activateByEvent = async (event, assetDir, platform, application) => {', helper + 'const activateByEvent = async (event, assetDir, platform, application) => {')
-    return replace(text, 'const matchingExtensions = extensions.filter(extension => matchesEvent$1(extension, event));', `const candidates = extensions.filter(extension => matchesEvent$1(extension, event));
+    text = replace(text, 'const matchingExtensions = extensions.filter(extension => matchesEvent$1(extension, event));', `const candidates = extensions.filter(extension => matchesEvent$1(extension, event));
     const allowGit = event.startsWith('onCommand:') || !candidates.some(e => e.id === 'builtin.git') || await memoryHasGitRepository(getWorkspaceUri, exists);
     const matchingExtensions = candidates.filter(extension => extension.id !== 'builtin.git' || allowGit);`)
+    text = replace(text, 'const matchingExtensions = extensions.filter(extension => matchesEvent(extension, event));', `const allowGitProviders = await memoryHasGitRepository(getWorkspaceUri, exists);
+    const matchingExtensions = extensions.filter(extension => matchesEvent(extension, event) && (extension.id !== 'builtin.git' || allowGitProviders));`)
+    return replace(text, 'return extensions.filter(extension => !extension.disabled && isExtensionIsolated(extension) && getProviderIds(extension).length > 0);', `const allowGitProviders = await memoryHasGitRepository(getWorkspaceUri, exists);
+  return extensions.filter(extension => !extension.disabled && isExtensionIsolated(extension) && getProviderIds(extension).length > 0 && (extension.id !== 'builtin.git' || allowGitProviders));`)
+
   })
 } else if (mode === 'rollup-terser') {
   // Rollup processes the main bundle without relocating imports or dynamic chunks.
@@ -108,7 +113,7 @@ if (mode === 'combined') {
       if (directory === app) break
       directory = path.dirname(directory)
     }
-    await edit(file, async text => (await minify({[file]:text}, {module, keep_fnames: true, keep_classnames: true, compress: {passes: 2}, mangle: true, sourceMap: false, format: {comments: /^!/}})).code + '\n')
+    await edit(file, text => minifyJavaScript(text, file, module))
   }
 } else { throw new Error(`Unknown patch experiment ${mode}`) }
 await mkdir(receiptDirectory, {recursive:true})

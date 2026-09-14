@@ -2,7 +2,7 @@ name: Report and Pages
 on:
   push:
     branches: [main]
-    paths: ['site/**', 'data/**', 'scripts/analyze.js', 'scripts/build-report.js', 'scripts/report-summaries.js', 'scripts/check-budget.js', 'tests/**', '.github/workflows/pages.yml']
+    paths: ['site/**', 'data/**', 'scripts/analyze.js', 'scripts/build-report.js', 'scripts/report-summaries.js', 'scripts/patch-report.js', 'scripts/check-budget.js', 'tests/**', '.github/workflows/pages.yml']
   pull_request:
   workflow_dispatch:
 permissions:

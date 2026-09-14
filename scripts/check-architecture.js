@@ -1,12 +1,16 @@
 import {readFile} from 'node:fs/promises'
 import assert from 'node:assert/strict'
 export function checkArchitecture(mode, raw) {
+  assert.ok(['shared-in-main','services-in-main','renderer-chunks','lazy-git','rollup-terser','combined','lazy-git-repository','combined-repository'].includes(mode), 'Unknown experiment')
+  assert.equal(raw.trials.length, 1)
   const trial = raw.trials[0]
+  assert.equal(trial.editor, 'lvce')
   assert.equal(trial.status, 'passed', 'Diagnostic must pass edit/save')
   const d = trial.diagnostics
   assert.equal(d.versions.electron, '44.3.0')
   assert.deepEqual(d.errors, [], 'Incomplete diagnostic')
   assert.ok(d.renderer?.heapAfterGc, 'Renderer diagnostic missing')
+  assert.ok(d.targets.every(target => target.heapAfterGc && !target.error), 'Incomplete worker diagnostics')
   const services = d.processes.filter(p => p.serviceName === 'node.mojom.NodeService').map(p => p.name)
   const has = name => services.includes(name)
   if (['shared-in-main','services-in-main','combined','combined-repository'].includes(mode)) assert.equal(has('shared-process'), false)
