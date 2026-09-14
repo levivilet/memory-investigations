@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir, cp, readdir } from 'node:fs/promises'
 import {createHash} from 'node:crypto'
 import {analyze} from './analyze.js'
-import {patchReport} from './patch-report.js'
+import {patchReport, patchConclusion} from './patch-report.js'
 import {reportSummaries} from './report-summaries.js'
 import {chart,roleTable,experiments,workers,escape,mib} from '../site/render.js'
 const datasets={},manifest=[],rawData={}
@@ -25,7 +25,7 @@ let html=await readFile('site/index.html','utf8')
 const chosen=datasets[selected]
 const a=chosen.editors.find(e=>e.id==='lvce'),b=chosen.editors.find(e=>e.id==='basic-electron')
 const preparation = JSON.parse(await readFile('data/minified-preparation.json'))
-const replace={PATCH_EXPERIMENTS:patchReport(datasets,rawData),...reportSummaries(datasets, diagRaw, preparation),CHART:chart(chosen),ROLES:roleTable(chosen),EXPERIMENTS:experiments(data),WORKERS:workers(diagnostic),LVCE:mib(a.metrics.pss.median),BASIC:mib(b.metrics.pss.median),GAP:mib(a.metrics.pss.median-b.metrics.pss.median),OPTIONS:Object.keys(datasets).map(id=>`<option value="${escape(id)}" ${id===selected?'selected':''}>${escape(id)}</option>`).join(''),EVIDENCE:manifest.map(f=>`<li><a href="data/${escape(f.file)}">${escape(f.file)}</a> <small>${Math.round(f.bytes/1024)} KiB · SHA-256 <code>${f.sha256}</code></small></li>`).join('')}
+const replace={PATCH_CONCLUSION:patchConclusion(datasets),PATCH_EXPERIMENTS:patchReport(datasets,rawData),...reportSummaries(datasets, diagRaw, preparation),CHART:chart(chosen),ROLES:roleTable(chosen),EXPERIMENTS:experiments(data),WORKERS:workers(diagnostic),LVCE:mib(a.metrics.pss.median),BASIC:mib(b.metrics.pss.median),GAP:mib(a.metrics.pss.median-b.metrics.pss.median),OPTIONS:Object.keys(datasets).map(id=>`<option value="${escape(id)}" ${id===selected?'selected':''}>${escape(id)}</option>`).join(''),EVIDENCE:manifest.map(f=>`<li><a href="data/${escape(f.file)}">${escape(f.file)}</a> <small>${Math.round(f.bytes/1024)} KiB · SHA-256 <code>${f.sha256}</code></small></li>`).join('')}
 for(const [key,value] of Object.entries(replace))html=html.replaceAll('{{'+key+'}}',value)
 if(/\{\{[A-Z_]+\}\}/.test(html))throw new Error('Unresolved report placeholder')
 await mkdir('.tmp/pages',{recursive:true})

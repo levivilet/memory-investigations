@@ -1,0 +1,17 @@
+{
+  "mode": "lazy-git",
+  "applicationCommit": "9637939",
+  "electronVersion": "44.3.0",
+  "runtimeArchiveSha256": "8b49b9efdd73c0f467edc3c1cd5678392c384ccf224f34ff54179f736e2f384b",
+  "applicationArchiveSha256": "27d8fd309117f4d3698431b2a46904778bd1e6e2f60e2a8f6501c3fdc946e4b9",
+  "changes": [
+    {
+      "file": "static/9637939/packages/extension-management-worker/dist/extensionManagementWorkerMain.js",
+      "before": 208232,
+      "after": 209392,
+      "beforeSha256": "e0a1fdcd610a271581e87648dbafda6ef9b167bef8054ef9eac318014cd7b973",
+      "sha256": "c3427aa72a6d7d52bc2060f2449ff885ee18dc9cee37eac4a076cd0a3bdfa0aa"
+    }
+  ],
+  "timestamp": "2026-09-14T10:00:46.958Z"
+}

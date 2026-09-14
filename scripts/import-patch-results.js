@@ -35,6 +35,8 @@ for (const mode of modes) {
   const prep = await read(mode+'-preparation')
   assert.equal(prep.applicationCommit, '9637939')
   assert.equal(prep.electronVersion, '44.3.0')
+  assert.equal(prep.runtimeArchiveSha256, control.editors.find(e=>e.id==='lvce').runtime.sha256)
+  assert.equal(prep.applicationArchiveSha256, control.editors.find(e=>e.id==='lvce').sha256)
   const diagnostic = await read(mode+'-diagnostic')
   assert.equal(diagnostic.commit, source.commit)
   assert.equal(diagnostic.runUrl, source.runUrl)

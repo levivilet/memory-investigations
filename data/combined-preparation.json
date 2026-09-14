@@ -1,0 +1,1108 @@
+{
+  "mode": "combined",
+  "applicationCommit": "9637939",
+  "electronVersion": "44.3.0",
+  "runtimeArchiveSha256": "8b49b9efdd73c0f467edc3c1cd5678392c384ccf224f34ff54179f736e2f384b",
+  "applicationArchiveSha256": "27d8fd309117f4d3698431b2a46904778bd1e6e2f60e2a8f6501c3fdc946e4b9",
+  "changes": [
+    {
+      "file": "packages/main-process/dist/mainProcessMain.js",
+      "before": 231922,
+      "after": 232183,
+      "beforeSha256": "4a39e830500d8c91d8ac9553392e669a9c3af41928a2865571164c44bb1f6a6f",
+      "sha256": "a4eb18df0f2dd8ce7c1aea8d739c733d5554e655dccd2d7da57bd13116c387ee",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "memory-process-host.cjs",
+      "before": 1834,
+      "after": 1851,
+      "beforeSha256": "4eb5de0f477e8257c401d7ca3915c3f79da80ae64cf1191569534888387f4924",
+      "sha256": "c6fd634569ad7240afe6b7ad2384bcfe1ccdd5bc645b1cf73890daa05b8b591b",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/WorkspaceSource/WorkspaceSource.js",
+      "before": 174,
+      "after": 403,
+      "beforeSha256": "ab4054b38b9197dbfc82d632fdd0640c521ff98a9285fdd0da4ab346bcff790b",
+      "sha256": "5b37de555bfcd6cb9b930db2dacbdbaf380a4f496a9f3a81e30c92c0c019fb02",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/WatchFile/WatchFile.js",
+      "before": 378,
+      "after": 607,
+      "beforeSha256": "6195bcbdcf1c7b9a2c92c6e5194e213d3e7fc3d563eb5cf88fbc5d16cae0f37c",
+      "sha256": "7f21a88d46503008c8d89b461f58ea2058584bd16e1f2f4da90335518f159e61",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/TypeScriptCompileProcessPath/TypeScriptCompileProcessPath.js",
+      "before": 277,
+      "after": 506,
+      "beforeSha256": "5ec017189b9045363fe2e43aaf51fb3f98c8cfa4e323361ac92c2cdc865d3c3d",
+      "sha256": "6aed6208f266f12df80437a5ab7a87f270a1060106573c81bd68d9c748acf303",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Terminal/Terminal.js",
+      "before": 2267,
+      "after": 2496,
+      "beforeSha256": "0c1ff36753d899903238b7798085b33c5d80a5b773cc1e00a0ffff85abe773ee",
+      "sha256": "978260e350f291c4d9319e411bc097f051d060bfcc26040265a61d4abeb990d9",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/TemporaryMessagePort/TemporaryMessagePort.js",
+      "before": 2234,
+      "after": 2463,
+      "beforeSha256": "119f1cfb7d33389afab8d46a9408beb7d85c3ecb1c5a9023619d162197eef191",
+      "sha256": "d908343e086fe8311e1b31993d7db460dd312b3e23e713f41ba5e50cb5d9ba5f",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/SearchProcessPath/SearchProcessPath.js",
+      "before": 254,
+      "after": 483,
+      "beforeSha256": "5e9f4583bf8acdae555ec6a768684f24a901942264b0060a0ae9c5d14f02e16d",
+      "sha256": "d6f421e500783c661633cc5d3fa80338c17085599da07c0106b7d4820cbe9e8a",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Restart/Restart.js",
+      "before": 272,
+      "after": 501,
+      "beforeSha256": "6e3a19efbe447ce9d1bf58b7f291f9f97a045e60ef40e94c440757487035a13b",
+      "sha256": "9c3ac2009e3a558b816be39a1fdb03526da314a350a0a2bf2c5ac35d8cf0dffa",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ResolveRoot/ResolveRoot.js",
+      "before": 4050,
+      "after": 4279,
+      "beforeSha256": "92fce6f01685a8045aa756b9abc94b60e981e50c559373bac969f53ae5474e67",
+      "sha256": "e97505f737dc1ceb54a815220f57fdeb607a388d2c8bbf2f0796fccee5276667",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ResolveExtensionNodeRpcPath/ResolveExtensionNodeRpcPath.js",
+      "before": 1666,
+      "after": 1895,
+      "beforeSha256": "0118495de544036fa66cd464c007fbaba30c1eaa3ff4aaa0827705c922a6a14a",
+      "sha256": "8ca7ac1b93fd889908681d3c4a97c6078e9c0bc0e72a2da54cb7aec2ec6734ca",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ResolveExtensionNodeProcess/ResolveExtensionNodeProcess.js",
+      "before": 2229,
+      "after": 2458,
+      "beforeSha256": "0de6d4d475a4b12c38e27ad9457c3ee33a6fac25242d7c6dc3ead8ff3f321a62",
+      "sha256": "14477a28f84ed97eaca790a18a6ef18fdbbb2717379acb768ae4672ce4a85228",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/RegisterWebViewProtocol/RegisterWebViewProtocol.js",
+      "before": 832,
+      "after": 1061,
+      "beforeSha256": "2aa90cc522ebc6ec65bb020a67eaba4b0679b6f3819170be48ce83b62ba740f7",
+      "sha256": "7c4c86b523134381111a1712aa531e066c577327b9467a3dce324b76c6e123a4",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/PtyHostPath/PtyHostPath.js",
+      "before": 229,
+      "after": 458,
+      "beforeSha256": "a29bf5b04eaee81f86accbf632b3fe1ec03b96fd8c7246ee4f50a066364e422f",
+      "sha256": "20e0084cf9de344b40b532eb955efc67a781b51c0dfb85fdba850504a071189e",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ProtocolType/ProtocolType.js",
+      "before": 465,
+      "after": 694,
+      "beforeSha256": "6d36d58c5ae2f33462186a03cda26cc4e2facfdd8ecbbea899cbf474404a85e0",
+      "sha256": "5f66c33dedaeec1a4c694e2b9da7388a781803a0d916820b8f1030dec6d28cbc",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ProcessListeners/ProcessListeners.js",
+      "before": 411,
+      "after": 640,
+      "beforeSha256": "062a669c095abff91b1923f0cdb0b536ff34501e61f514da2b9a77cb3d569f52",
+      "sha256": "e1d17508229a39a97c3ffa7ad4e4fd1ffc8055a4f8447ef80ca43bb1f40e312f",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ProcessId/ProcessId.js",
+      "before": 130,
+      "after": 359,
+      "beforeSha256": "290bcbee052d02b6ae73c580ae2e41d2c81d78e495ee2d2d7e8864b67d23ab40",
+      "sha256": "e92851ffe95165ab7ca44a4b08e9f65c8d4fd704f1e76dcbd250b908ec2e9256",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ProcessExplorerPath/ProcessExplorerPath.js",
+      "before": 258,
+      "after": 487,
+      "beforeSha256": "e22976246c54dcd2216dbc9f229a20e8de65f6ff4e9e1a59d13f17013aba89af",
+      "sha256": "853357884f75e3c0102f8d645ad6f2a309a43faa6e985082f5a398efd9badc5d",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ProcessDisplayName/ProcessDisplayName.js",
+      "before": 51,
+      "after": 280,
+      "beforeSha256": "4b4d841da33f6ba2b11d3cf6c0495b1082b363a996cbfd1f029c4d73ca6a07b7",
+      "sha256": "12d2a83596fb3e5dece597e9e0da34247ffa3b0e2d45e7d9046fbd103e372308",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Process/Process.js",
+      "before": 1493,
+      "after": 1722,
+      "beforeSha256": "db2bd243069aa98b80651c79a1724a9259611af0ca27274572712239a47a487d",
+      "sha256": "e4c8c9c239598ee2941d3966addda67a1890ac6b53a43fabc943494148c4c03a",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/PreviewProcessPath/PreviewProcessPath.js",
+      "before": 256,
+      "after": 485,
+      "beforeSha256": "54b0f3419a4996500a25bf8cd13f92382d0950d74ede609ccf224d3f491cf9ed",
+      "sha256": "55b01fd5db5992f0a8edb4d88845619dbd12e5262f43ae3c5376aa6de8b2361c",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Preferences/Preferences.js",
+      "before": 3509,
+      "after": 3738,
+      "beforeSha256": "b67d4ec3c79e76aced7fc784540f8d2f49ccb9368c8ddc2da00bddf8d9241990",
+      "sha256": "87b216136957bdc54ad0013d267cbc1e2360b49a488288d68cffdc75cde7d3c6",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/PlatformPaths/PlatformPaths.js",
+      "before": 4579,
+      "after": 4808,
+      "beforeSha256": "46f20777938593858ff23d46157ea1cc8d263f93bfb33c7cf618c83771dd5bdd",
+      "sha256": "cb2fd13e1f58d2cd81855df2d634d5fbccea82b7810e10717c27c5c86a15aaa4",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Platform/Platform.js",
+      "before": 1471,
+      "after": 1700,
+      "beforeSha256": "ded8738f911e313ee01ed146c906ac8fdf82da821e92b46c9497c57eab31522e",
+      "sha256": "5b9edb275b4264ab4196de978847194ad9aece30789531bb1a936266908daf87",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/OutputChannel/OutputChannel.ipc.js",
+      "before": 1219,
+      "after": 1448,
+      "beforeSha256": "efc221f53d3f22cc3fac91a2266d7afa6585d211395de0b600469597fd511980",
+      "sha256": "6393370458f67be4c37d8b29a166a13b19ab07d1a772664ab87cae696327dc42",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/OutputChannel/OutputChannel.js",
+      "before": 802,
+      "after": 1031,
+      "beforeSha256": "da93b37dfb0e6186cbd46b430aefd7aff3a20bccc4fb837f239461ed6baad289",
+      "sha256": "d84f67c2580f86ed57b79bb064dc73fdfb886c6968914680cd87867608a1538f",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/NetworkProcessPath/NetworkProcessPath.js",
+      "before": 269,
+      "after": 498,
+      "beforeSha256": "9bf66ef3c6297613495ead2360ccb09faa072cee65962e282c756f0d7aef27ae",
+      "sha256": "97b29fce6964e355ffce7e1781de3b0cc3add4f5307e98c025c590c770a6c8ba",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/MainProcess/MainProcess.js",
+      "before": 903,
+      "after": 1132,
+      "beforeSha256": "907aef758619cc2fa8e7e02034f35c5f9049f5214d533ddb0d9d4bd78fca2834",
+      "sha256": "d2bcf89766ea4b7cc9b11eaf1f40c4cdd76fd759ba79e88192d3971d2726428e",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Main/Main.js",
+      "before": 900,
+      "after": 1129,
+      "beforeSha256": "1ab6f8a771a26873d740d8266212ee601b5a3675a95801e3ce1c0fab467ddbe2",
+      "sha256": "eb432cc71601196877fa1ea745bf5e308db5b0dd14bf2a7243629734654e5418",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Logger/Logger.js",
+      "before": 1062,
+      "after": 1291,
+      "beforeSha256": "776b1b4b6942ea538d1c227182b31d4de852b3e37723c6f0180f0728f7f0c295",
+      "sha256": "2d9869d4588887395a5f9aa6e1d47fe05351e71d4ffa37418ce9f2e9bfa8ee77",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/LinkedExtensionDevServers/LinkedExtensionDevServers.js",
+      "before": 1979,
+      "after": 2208,
+      "beforeSha256": "527838dfde56e3bf18ad3d674b95269f4b0cc9437e652244e4e07c29fe59c76e",
+      "sha256": "897dbf12c0af115dc251c14d13da5307ff533c1fa686a696b75e051c5658e9dd",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/LaunchFileSystemProcess/LaunchFileSystemProcess.js",
+      "before": 1071,
+      "after": 1300,
+      "beforeSha256": "686ec930bcd7b6cb5ddc6b3a22a6bc5e383980471909c2f99345239403791b9b",
+      "sha256": "8a7cc657ee22fd74b19462d391b1d322598268170e9d66fc336292851c0023cb",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/LaunchEmbedsProcess/LaunchEmbedsProcess.js",
+      "before": 802,
+      "after": 1031,
+      "beforeSha256": "30a316960bb19c2331d28cf867771b60f6dc412d630e6306eb564e9d493228ac",
+      "sha256": "10a87958a24831be208bf0a6b951d421fbd4d629ee5a63acfd693be093d292dc",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/LanguageServerConnection/LanguageServerConnection.js",
+      "before": 18540,
+      "after": 18769,
+      "beforeSha256": "64514e1ce41a013f51d4255d0c2889e38a4f9b87dcf514402063d7169fb21ebb",
+      "sha256": "89b13d99473be1637c7f8ebcb08cf8716b89cb07ebfc4d765783180d7e0bdaf6",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/IsWindows/IsWindows.js",
+      "before": 54,
+      "after": 283,
+      "beforeSha256": "e580ee9e440df030949ef1f456f9860add2ce9a528ebb48ff35232b14f29f379",
+      "sha256": "5d25911936e0259f01950622218cb1de15ecf48a73e246024bd875e18ce2128d",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/IsIgnoredError/IsIgnoredError.js",
+      "before": 612,
+      "after": 841,
+      "beforeSha256": "e67765f49dae1e2d05a57b11cb7347fde284f6923aa521698e5b8714f85f6214",
+      "sha256": "804300c931abddc161f290aa7e95dfc87bd0f1ed718201aba6c23adcac626a76",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/IsElectron/IsElectron.js",
+      "before": 134,
+      "after": 363,
+      "beforeSha256": "b8da307b5e6a6981cded6c1dd78d60641af9fb3ffecb6ecf35d1e4ca864dcbb3",
+      "sha256": "83e2de46892146e2f30c1f37c0dce4de29cfd18c657035c718206a12517c1ad0",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/IpcParentWithElectronUtilityProcess/IpcParentWithElectronUtilityProcess.js",
+      "before": 2665,
+      "after": 2894,
+      "beforeSha256": "75f6cb478ef61327690dda9e3b1288a7113fd354f26d0679fc1b841edcd79b3d",
+      "sha256": "4f1c5005ca74bc1da5ee246325a1e523011dffbafbc90ca89251a724d72a66e9",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/IpcChildType/IpcChildType.js",
+      "before": 578,
+      "after": 807,
+      "beforeSha256": "6d600520a6b80f6126e573c241433e84a315cb070c9033718db37b6cc81f9036",
+      "sha256": "3f5d8031b91f2be731eb040d35a82b00b45d7fd74738e46c29b50ec83760d4be",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/HandleWebSocketForUnknown/HandleWebSocketForUnknown.js",
+      "before": 299,
+      "after": 528,
+      "beforeSha256": "8aead7f2bab983154c95efcc50187c84dafd627267218e05fa0afe6a39a4a72b",
+      "sha256": "01131a216760d651aff35e7e4a6e0e3b654dda8d87686d5fc47c9c519513a76a",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/HandleWebSocketForExtensionNodeProcess/HandleWebSocketForExtensionNodeProcess.js",
+      "before": 835,
+      "after": 1064,
+      "beforeSha256": "964274969e8d3e8fb453d5d910bf494b3fd6becf4a0b9f3ef0851e6aea7a6d60",
+      "sha256": "a831a5ddeacc45e4802f34f1c7630772fe65019110d78e58c00b97c7b8a835b9",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/HandleUncaughtExceptionMonitor/HandleUncaughtExceptionMonitor.js",
+      "before": 414,
+      "after": 643,
+      "beforeSha256": "33d58e4b5898e8c28b959b99e95342c77ef78977e0bc6da57c0aa17cceeff177",
+      "sha256": "ca5dfe9f7a85b49c5c2ec8865b8688bc991f3b7d2d17ab6bc76339957892e373",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/HandleSocketError/HandleSocketError.js",
+      "before": 348,
+      "after": 577,
+      "beforeSha256": "76ad0411961633a3d286539d60dda1dbea575231adbeb022b9e980f6ac8dbc0b",
+      "sha256": "4f6caf49fa12cdb370f2d03aa21367e0508daf74550863a46171b1a52c658d45",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/HandleMessage/HandleMessage.js",
+      "before": 881,
+      "after": 1110,
+      "beforeSha256": "25f951dc68d90618424b68c57fbb012c33e8b98ef88c7ae97834c9ceccea60be",
+      "sha256": "e9da3ac066f2e2ccb7626d128bc4b12ebd7529fbc5f13bd37157fa02da725ebf",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/HandleDisconnect/HandleDisconnect.js",
+      "before": 225,
+      "after": 454,
+      "beforeSha256": "8e03dc082e3bddf8580f3c6cd20d8fbd7d74021b211aaad7026057660a22715a",
+      "sha256": "d36f3d0ef5740fcb6cb6ae5be6cd8ab513dbac34db9c7493111e52d19329710e",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/GetResolvedTestPath/GetResolvedTestPath.js",
+      "before": 606,
+      "after": 835,
+      "beforeSha256": "4a319ea909e503be93e478807bd7e525bd643ee26908b1912937e578628902f8",
+      "sha256": "debf2489da5194a76b2da9e89a3da4e46834a4fd15dd53bf824cb939c6f12d61",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/GetProcessExplorerUrl/GetProcessExplorerUrl.js",
+      "before": 201,
+      "after": 430,
+      "beforeSha256": "b0a21062e5f69b5bfa9e9cfca7b65a413351dbfd459d18a9dacb2e797a0ebd8a",
+      "sha256": "3c618d2060f2283c93002d712dbdd0dfb8bfb6deb543de6059128af255046a43",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/GetPortTuple/GetPortTuple.js",
+      "before": 441,
+      "after": 670,
+      "beforeSha256": "46d699099579e6a7927a59c89fe0b600c998d6e6a385e9133b3cfaa3a32e56bf",
+      "sha256": "b4f0f77b675a2203a3ad338e00a536e7bbe87ff2713888990fdb1dc554f59db4",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/GetMimeType/GetMimeType.js",
+      "before": 1372,
+      "after": 1601,
+      "beforeSha256": "01e1324970fac39abf990369fd6a1ecdda247ec4f8d0ff01f5d17159cdb1843e",
+      "sha256": "76869aab20b314dff451cf497f5c891ac05ada1eccc1e474e0ebc2a7d830db60",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/GetElectronFileResponseAbsolutePath/GetElectronFileResponseAbsolutePath.js",
+      "before": 2480,
+      "after": 2709,
+      "beforeSha256": "8303fb000d569e72dc2531beafec7e2fb70a987cf6c08d385b99bbaae5425831",
+      "sha256": "ac7e3b6622ddbd940eaca2d07efa454712ebb657fb7c815bc3b47e66fae841a2",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/GetElectronFileResponse/GetElectronFileResponse.js",
+      "before": 4919,
+      "after": 5148,
+      "beforeSha256": "ad6287716e0b024466caa1143ad162129ed6d70df512e148552912664d310e60",
+      "sha256": "d7c10319a93fbcf85aa683626eef36f63d711ee9bb4b360cbd3564d4c8b32f6d",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/FixElectronParameters/FixElectronParameters.js",
+      "before": 559,
+      "after": 788,
+      "beforeSha256": "b6abaaa18ece069dd277d450528984e5eca4395de72c1e90ff954047cd51a1a0",
+      "sha256": "61d10519d3dddd1729101e0a77eaca60a7aea4e3f98b1c0fade1559fbe9e7394",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/FileWatcherProcessPath/FileWatcherProcessPath.js",
+      "before": 265,
+      "after": 494,
+      "beforeSha256": "51f960f13936f22efa0633cf8c7576519426593c1776f56811eac789c47c955b",
+      "sha256": "263ee9390549d236bab90f6de06056ffd38ed73753c0ebe909f72c42e2ff15d7",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/FileWatcherExplorerPath/FileWatcherExplorerPath.js",
+      "before": 267,
+      "after": 496,
+      "beforeSha256": "142a2d70dd320283fe84696668a632a73ff1859535e2244c0db725978711a1a7",
+      "sha256": "4938beca36e16503b40e06b04f0248cca1829d039d0e7ee2ea99816b2bfec528",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/FileSystemProcessPath/FileSystemProcessPath.js",
+      "before": 263,
+      "after": 492,
+      "beforeSha256": "0b700d90c6784bff598ab3f960dc3dc0b714dc0dc4ce0b3b84b9cc5944473938",
+      "sha256": "9ec7398e9be6f4191cacd92d6ce8c3e5d8270cc8c3eda3c6341b6b4d179096d9",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/FileSystem/FileSystem.js",
+      "before": 8351,
+      "after": 8580,
+      "beforeSha256": "d3cf958b758b184d0666dffe4f511b5259775c20e6b4dba46dfb3d5fc7f49299",
+      "sha256": "59304db159cbb65f6f8fea6bd5f409013805bba8ab83a528bde06f5d49f65a76",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ExtensionManifest/ExtensionManifest.js",
+      "before": 2232,
+      "after": 2461,
+      "beforeSha256": "21d48d0a319c549c19acce3e9e7066dcab17c8b2461f7c4900600fdc35f396a2",
+      "sha256": "7445788af6330200407d16c3d766599f1ad6d2a7a4fbdd78fcb1d143fcd50631",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ExtensionManagement/ExtensionManagementColorTheme.js",
+      "before": 2787,
+      "after": 3016,
+      "beforeSha256": "fb532abedbb4bd4da80ef4e2f27d8311264d72fbedd3420072bd8df4e6b48a43",
+      "sha256": "58a09d6ccbfe8ad179fb989dddba1ca1e693c1925bc2b660d3f29a34dd4adca2",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ExtensionManagement/ExtensionManagementLanguages.js",
+      "before": 2529,
+      "after": 2758,
+      "beforeSha256": "330bad1d5529327665808d293cefc4d0c7b5ed16c1c8837bc0713c5b6441ee2b",
+      "sha256": "d305cff22e4f26a03e7fec139dd83da371e0ea02f3e58e9519a587c3b8c425f0",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ExportStatic/ExportStatic.js",
+      "before": 25955,
+      "after": 26184,
+      "beforeSha256": "18fdf4acbf0957cdb5f24c3dfaa71b1274aa72ff568be8715c060ac77ce646df",
+      "sha256": "12cd60df3275396d9ad619e072c45642bfbc8148aaf0675460177be1a369c8f9",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ErrorHandling/ErrorHandling.js",
+      "before": 2033,
+      "after": 2262,
+      "beforeSha256": "4d8b1b66f2644bb0959a5f2c082041788ecfbddeb5b3b634473e11bd24906851",
+      "sha256": "c9ae1300c40e5fdb0e4f700703c3a922c28fef76753c5b274ee84cdbb0b72087",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Env/Env.js",
+      "before": 399,
+      "after": 628,
+      "beforeSha256": "161622c86a38178c986c0dd4b8760bf1e97f52e0564f73dffa00433ae68e5f8b",
+      "sha256": "e4dcc8f3542b59d3c8898e2f440eb3d8fa74a2c4788220a86b6a5ffa19746be2",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/EmbedsProcessPath/EmbedsProcessPath.js",
+      "before": 266,
+      "after": 495,
+      "beforeSha256": "40122179aaf0f744ca9c6f28df32acd823cf635274f469cda825551976c6ed18",
+      "sha256": "1f878dc35ac23c7004945649f2509dcfcd4dbade8b5ec343b4e9a353a9a36f55",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ElectronWindowProcessExplorer/ElectronWindowProcessExplorer.js",
+      "before": 1353,
+      "after": 1582,
+      "beforeSha256": "1281b2bd6969d8d2fd2096aa0e4d7dd55c0d9afe87eab445e1d6c9fbece08286",
+      "sha256": "8a7048439b868ce4a05551dd0606fd024208ab916c504c24588b0f12aa093869",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ElectronWindow/ElectronWindow.js",
+      "before": 3718,
+      "after": 3947,
+      "beforeSha256": "3f48f592591b5f9af8073a9a80218c4732a4cec62989972449af93e180c68079",
+      "sha256": "7e55ed7eb7e63197ec3178cf022fd335f22c9ae9ce22265be5cc4e551ecbe58b",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/Desktop/Desktop.js",
+      "before": 695,
+      "after": 924,
+      "beforeSha256": "ba1a68541101957a43b2d131b1f09f9a2e48a6f738d0c3d4778391b857604e50",
+      "sha256": "c734daeaf72574e061edfec739718a8fa04fe4f1d12061d00933adc80c370f6c",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/CookieImportProcessPath/CookieImportProcessPath.js",
+      "before": 282,
+      "after": 511,
+      "beforeSha256": "30bcdc366471863264a5ddcfbc315a77cad2de8672a002e7f25fca2ef28441c9",
+      "sha256": "d486f315206881bcf8b3454e421979cf44c508397197c0bb4722bb7fbba4b13f",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/ClipBoardProcessPath/ClipBoardProcessPath.js",
+      "before": 260,
+      "after": 489,
+      "beforeSha256": "d4a255269738e54536904487022273f4f5243db6979c227250ff55c4e3554aa5",
+      "sha256": "7ab720b3239cab119b40a29168fd2168051b6d5965dfffe49095c635c94d0278",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/AutoUpdaterWindowsNsis/AutoUpdaterWindowsNsis.js",
+      "before": 2734,
+      "after": 2963,
+      "beforeSha256": "8ac380ffbc5066f274669bf28107f60b546eaae0e9635af55d9f55b4e7477f14",
+      "sha256": "315c1f702b15d08b9ad79a531879c487b386464af995ad031aa591c8bd5b61d2",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/AuthProcessPath/AuthProcessPath.js",
+      "before": 231,
+      "after": 460,
+      "beforeSha256": "76de493b5dfc2b82b8470f0538de7dffc5452bddcf68e399dc9016d347758a1e",
+      "sha256": "afc305a8124b6c99fb7619d3cd463b1859d7931f062cf70acf6eadc1e94ac18d",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/src/parts/AddCustomPathsToIndexHtml/AddCustomPathsToIndexHtml.js",
+      "before": 1431,
+      "after": 1660,
+      "beforeSha256": "cd6fca413ded2e904b44f941818aee1fb2930b3628cfae05ba9019b7709981f5",
+      "sha256": "cd052d0b9c8cebd04b31f870f43d385eb85e80ae8885a14a25ceee6497c3e39a",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/node_modules/@lvce-editor/ipc/dist/index.js",
+      "before": 40715,
+      "after": 40944,
+      "beforeSha256": "2e6624df002e4a17c67766269ceda33ab62cb536dd9b3d603affcc53981844f3",
+      "sha256": "90b2d828b2f82c2ef77220170620969311c2b7515406197d90c568231c91033d",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "packages/shared-process/node_modules/@lvce-editor/file-system-process/dist/index.js",
+      "before": 55868,
+      "after": 56102,
+      "beforeSha256": "73eacef0f37c1357c31603d87a65f318c1494c844e48727762f7b77e09f18096",
+      "sha256": "70bd238a6cd5afcb23ca3d76f2d1f9845693dee4cca931da64d9522b67c74cfe",
+      "variant": "services-in-main"
+    },
+    {
+      "file": "static/9637939/packages/extension-management-worker/dist/extensionManagementWorkerMain.js",
+      "before": 208232,
+      "after": 209392,
+      "beforeSha256": "e0a1fdcd610a271581e87648dbafda6ef9b167bef8054ef9eac318014cd7b973",
+      "sha256": "c3427aa72a6d7d52bc2060f2449ff885ee18dc9cee37eac4a076cd0a3bdfa0aa",
+      "variant": "lazy-git"
+    },
+    {
+      "file": "static/9637939/packages/update-worker/dist/updateWorkerMain.memory.js",
+      "before": 0,
+      "after": 38316,
+      "sha256": "058fa7ea78a18b8b1079d796021ca7d614b17d7a905490246c6b807988adbd18",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/title-bar-worker/dist/titleBarWorkerMain.memory.js",
+      "before": 0,
+      "after": 142114,
+      "sha256": "0a3a217285d7f4581e22f6a16626a4d662fe404b90a4344e832d0f677a1a562a",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/text-search-worker/dist/textSearchWorkerMain.memory.js",
+      "before": 0,
+      "after": 43381,
+      "sha256": "6591cdd5f40750fe976876a0c16f2b93ae9524ff723c871c5ee57a47122c04af",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/text-measurement-worker/dist/textMeasurementWorkerMain.memory.js",
+      "before": 0,
+      "after": 38706,
+      "sha256": "4cfccdf624da8da180d69731baf89b223527cb5b7b5d11fc7844be59a0f64ac7",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/test-worker/dist/testWorkerMain.memory.js",
+      "before": 0,
+      "after": 212467,
+      "sha256": "b480e5cc24a76724890585098072fc85a3278dad9b18d651ba336dba6beceffc",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/terminal-worker/dist/terminalWorkerMain.memory.js",
+      "before": 0,
+      "after": 49060,
+      "sha256": "ce181fd14f1f15b0752705701db16c7c62c10b0ec6062f310f1e9c704d183b21",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/syntax-highlighting-worker/dist/syntaxHighlightingWorkerMain.memory.js",
+      "before": 0,
+      "after": 40154,
+      "sha256": "4ce486321c4f5f2a2ca5ef70dd509ad532f2e64d7861097718d9fd498bea3cc6",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/status-bar-worker/dist/statusBarWorkerMain.memory.js",
+      "before": 0,
+      "after": 67653,
+      "sha256": "3460449b9525f2a516083dd8e7a80224aad82b7fbcf3af900779bfc8608d2d7d",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/source-control-worker/dist/sourceControlWorkerMain.memory.js",
+      "before": 0,
+      "after": 119772,
+      "sha256": "b71fd7bf639b44c9641c5a5bc5ee75bdd212dba5ed86d3c84b4db8ce1334db32",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/source-action-worker/dist/sourceActionWorkerMain.memory.js",
+      "before": 0,
+      "after": 54906,
+      "sha256": "ea97668e284255685aaae42b7c56eb8c5edf1edef44758624977d24429105de6",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/simple-browser-view/dist/simpleBrowserViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 55660,
+      "sha256": "945e09ed6b2ba28ce026f15676e43fb61e7277c937cf7223229cdb3193267fa6",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/settings-worker/dist/settingsWorkerMain.memory.js",
+      "before": 0,
+      "after": 47864,
+      "sha256": "f4d8b78118c48a11dd55d76476691d587cddd41925b4e863c9137eae3e834ef6",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/settings-view/dist/settingsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 111728,
+      "sha256": "82dfb5a96a9a82ec55fe61c0cbdc520bec3ef48a93519183a3386df189d7d86b",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/secrets-view/dist/secretsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 58450,
+      "sha256": "b27ed947874d33ed0aed04a9bd1c3966cae3015d69867508a491ea1fa3ca06ba",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/renderer-worker/dist/rendererWorkerMain.memory.js",
+      "before": 0,
+      "after": 1301676,
+      "sha256": "39aa9e5138a4d029849264f93b7c72e4ce24ee88667a730e0a8ebf03698c77ff",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/renderer-process/dist/sessionReplayWorkerMain.memory.js",
+      "before": 0,
+      "after": 43281,
+      "sha256": "ec50685918fd1276037b4513e2cd637c45d3fb266632b6820c8f70a46d05f546",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/rename-worker/dist/renameWorkerMain.memory.js",
+      "before": 0,
+      "after": 52621,
+      "sha256": "977ef2b1980bda621c7d98b1c4d419c2b338be5c8119686400ad6d1b152d9bab",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/references-view/dist/referencesViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 66191,
+      "sha256": "b04bb96cc394ba55998f3c8bd28ebf47aff2509a83f3398f2f43c3bc1cbe8d67",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/quick-pick-worker/dist/quickPickWorkerMain.memory.js",
+      "before": 0,
+      "after": 136667,
+      "sha256": "b6a3cec28c4787ecf00df27010431028822a3e2a6dfa31ae96a1995c80c9b9cd",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/problems-view/dist/problemsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 98506,
+      "sha256": "b6ef965e6bf52e252f64e25549cebaf6f498715ca24859b67ee2e622968af342",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/preview-worker/dist/previewWorkerMain.memory.js",
+      "before": 0,
+      "after": 132594,
+      "sha256": "76cd58ba53417d31d50a0be5e89bd7c875b90ae02bd94f9fa0930222484bff93",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/preview-sandbox-worker/dist/previewSandBoxWorkerMain.memory.js",
+      "before": 0,
+      "after": 2078627,
+      "sha256": "848cb3636da08b520f6f03fa8ae5566e11a21120a1698ce5905b04fd45e27709",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/ports-view/dist/portsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 66348,
+      "sha256": "f36c5e94271c1105bfcc235be6ba66372ad34d3f4cf173daee14a9fe17945f7c",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/panel-worker/dist/panelWorkerMain.memory.js",
+      "before": 0,
+      "after": 62150,
+      "sha256": "0a3ded9f7a56583494876846d66774a511fbbe510f9e1a552c08dc596313f57d",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/output-view/dist/outputViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 75304,
+      "sha256": "0fecbb7d12e8b6cec9d0af718de786efe1fc1c5bfc99fae3ee150052cda89032",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/opener-worker/dist/openerWorkerMain.memory.js",
+      "before": 0,
+      "after": 32089,
+      "sha256": "3e338cd8bfceb405acf305f415fb75fc409a942afdb015e4469af208a2d14828",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/notification-center-view/dist/notificationCenterWorkerMain.memory.js",
+      "before": 0,
+      "after": 88317,
+      "sha256": "1ace1caec5403fd0ea292c4ba952b774c4ce177920c4b6b3a8e00699747bafcc",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/menu-worker/dist/menuWorkerMain.memory.js",
+      "before": 0,
+      "after": 80773,
+      "sha256": "a5b8153c770de6e2623e8899760ae605d8e0b6bbdffb55603f0d517a70766c30",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/markdown-worker/dist/markdownWorkerMain.memory.js",
+      "before": 0,
+      "after": 105243,
+      "sha256": "92e824e5d53ed3b825ae2b551d37db592aeddf12e57a457a7dbf9495f39114ab",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/main-area-worker/dist/mainAreaWorkerMain.memory.js",
+      "before": 0,
+      "after": 252525,
+      "sha256": "19a4a90ff0cf6196b03f31282707b331502b13ad48abc37254c420a631e7581c",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/keybindings-view-worker/dist/keyBindingsViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 129853,
+      "sha256": "bb6e56cac3bbce4ce899c486559a469de7c7b23d6394f47cd153407dc65ffb0a",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/iframe-worker/dist/iframeWorkerMain.memory.js",
+      "before": 0,
+      "after": 70903,
+      "sha256": "437716018bd6522ea801f7d4d4bed9365da0db81962e297b711209c9e79bd7b4",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/iframe-inspector/dist/iframeInspectorWorkerMain.memory.js",
+      "before": 0,
+      "after": 67785,
+      "sha256": "52cf7c2da73eaa24814f6ea0aceaf296b698a65fd9b5f2337ec4d64b4b8e5441",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/icon-theme-worker/dist/iconThemeWorkerMain.memory.js",
+      "before": 0,
+      "after": 42605,
+      "sha256": "350199b5b812346b62148fbb2b46c3decc6fc7a8012745d794a1189eae3c7852",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/hover-worker/dist/hoverWorkerMain.memory.js",
+      "before": 0,
+      "after": 48499,
+      "sha256": "4b44743e51f262dc15dcebf3d955b54e4c415836bb4e3f689a4c1b387d7c9103",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/find-widget-worker/dist/findWidgetWorkerMain.memory.js",
+      "before": 0,
+      "after": 92871,
+      "sha256": "27d2c9a25cbe8f326f39b34fa92923c7ae882cebf0859005a1201da448c45829",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/file-system-worker/dist/fileSystemWorkerMain.memory.js",
+      "before": 0,
+      "after": 69574,
+      "sha256": "be17da89f11eab06ab16d6b8ed40198355b933f5cad75cb0e3258274c1635747",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/file-search-worker/dist/fileSearchWorkerMain.memory.js",
+      "before": 0,
+      "after": 32577,
+      "sha256": "dfe5ed14e33786335e8c0da68574d06a338195e67af21ef58f5db96c63a446c1",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/extension-search-view-worker/dist/extensionSearchViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 146425,
+      "sha256": "50d51a4d22af651cac6c7aa3a280fd23ab471d2b0586767d41b0c0075cd3b473",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/extension-management-worker/dist/extensionManagementWorkerMain.memory.js",
+      "before": 0,
+      "after": 209873,
+      "sha256": "07ab996dad09b0a97b4c5b8fb31c2cc84906939e7eac96a80b1af8c27f5a89ce",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/extension-host-sub-worker/dist/extensionHostSubWorkerMain.memory.js",
+      "before": 0,
+      "after": 28498,
+      "sha256": "008bbf9fd890e607559f0829c571cc9a304a446948ecd637aab6b5bbda3659b4",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/extension-detail-view-worker/dist/extensionDetailViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 217862,
+      "sha256": "b4e64637c76d12f18d289888d79721aa6a1149ed117727e85ce63019a75992aa",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/explorer-worker/dist/explorerViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 246558,
+      "sha256": "4b3e2411ec7db7c86efabc2dbc6fece70189ef7606012515f26a8d42f6ad5178",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/error-worker/dist/errorWorkerMain.memory.js",
+      "before": 0,
+      "after": 720634,
+      "sha256": "1f4a17f81265d779787604062c91c235a99f9da29f6811857b4ae24b39501025",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/embeds-worker/dist/embedsWorkerMain.memory.js",
+      "before": 0,
+      "after": 35369,
+      "sha256": "5d2d0125249007c8db25a0789e196ec69f31e5d553cf0597ad617c1c3ddbfd10",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/editor-worker/dist/editorWorkerMain.memory.js",
+      "before": 0,
+      "after": 522240,
+      "sha256": "55fc2b3ce92e36a4364492855b249dbb4e8aafddd54c20eedb99650e64ba0a44",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/drag-and-drop-worker/dist/dragAndDropWorkerMain.memory.js",
+      "before": 0,
+      "after": 35465,
+      "sha256": "58dbc0b0e3c7eab0ad4b4e609f3135ac253a0c9c3d1355f3ecb513b67653509d",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/diff-worker/dist/diffWorkerMain.memory.js",
+      "before": 0,
+      "after": 34948,
+      "sha256": "3422cb8e474a949f3570dddb2ba64575d967b5f21a66dc86e00a3caf4b501730",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/diff-view/dist/diffViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 169156,
+      "sha256": "5d9c7317ad06e104a66c1b7b68f34dce40b7cc996131717553d233cbf1b498c3",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/dialog-worker/dist/dialogWorkerMain.memory.js",
+      "before": 0,
+      "after": 52733,
+      "sha256": "d24bb5917bdbf61f9a7c05a3f0a9f3f70d40586c07b08025f864cbdc9b7be652",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/debug-worker/dist/debugWorkerMain.memory.js",
+      "before": 0,
+      "after": 156042,
+      "sha256": "7c3dd48cf044522ed39fa4ae31fde5067fc835e9566431fad12279af5d93bc25",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/cookie-import-view/dist/cookieImportViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 48094,
+      "sha256": "fadc0e546827466e2dc8e3e656f94cc868adc5867b6a8858a2337b2cd49b6f95",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/component-state-worker/dist/componentStateWorkerMain.memory.js",
+      "before": 0,
+      "after": 53059,
+      "sha256": "f22874e0c2922eae78083853265b2080374ef4670602059cc192cd5403355642",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/completion-worker/dist/completionWorkerMain.memory.js",
+      "before": 0,
+      "after": 72120,
+      "sha256": "eb5196985f178daac50e7a8996e90fe6f4dd149f6da440706786d30887d0e644",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/color-picker-worker/dist/colorPickerWorkerMain.memory.js",
+      "before": 0,
+      "after": 57329,
+      "sha256": "333a1e88e37b341da4f4ab83ba2d4f8c78441d366edb9fc954d4f94cf0ec3bb8",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/clipboard-worker/dist/clipBoardWorkerMain.memory.js",
+      "before": 0,
+      "after": 35202,
+      "sha256": "95661fa52491804605e1bfa2c3c9362092e4afc2f9a09f25587fdc3994bdf008",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-view-model/dist/chatViewModelWorkerMain.memory.js",
+      "before": 0,
+      "after": 94134,
+      "sha256": "279f5d7efc57ef7525e7db0a564aea12e6acacd8572a01cbd2173f955f3bbcea",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-view/dist/chatViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 395225,
+      "sha256": "29681d3a2e25ea90a0fda1a5b488ccbdf4d54238a20da30f9776cd0418c8ce34",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-tool-worker/dist/chatToolWorkerMain.memory.js",
+      "before": 0,
+      "after": 96496,
+      "sha256": "1c48e4d9ec76822daa6fd19f2c1afbc67a379cfb8733d9283678c70eda57cfa6",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-storage-worker/dist/chatStorageWorkerMain.memory.js",
+      "before": 0,
+      "after": 89133,
+      "sha256": "59a58abbf06abb8f692cd942f12d3c4045e8a00badd884c75991a14e9d8c19a6",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-network-worker/dist/chatNetworkWorkerMain.memory.js",
+      "before": 0,
+      "after": 28977,
+      "sha256": "8f989191a332fe254ad22e337c6fb40ec2845b87ffffe83bdec637941405a531",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-message-parsing-worker/dist/chatMessageParsingWorkerMain.memory.js",
+      "before": 0,
+      "after": 63632,
+      "sha256": "1eb7261a0589c7319cd9f0c212a0b6ca4b9975ee24359f6cf7ff3ff8a41fc18b",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-math-worker/dist/chatMathWorkerMain.memory.js",
+      "before": 0,
+      "after": 630853,
+      "sha256": "063b84b92312adcaed8baa6a9ee67a29ec8fb99ec0c8700022a8790bbb3b9601",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-debug-view/dist/chatDebugViewWorkerMain.memory.js",
+      "before": 0,
+      "after": 292109,
+      "sha256": "30d302c0f37f9390fb14c76aaf4c36d10eae5468fee92cd761cce32ae9587008",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/chat-coordinator-worker/dist/chatCoordinatorWorkerMain.memory.js",
+      "before": 0,
+      "after": 91002,
+      "sha256": "6e935d7a52166fe024944784089df66cceccd4ef39b5c34f2d7532018d771ca8",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/auth-worker/dist/authWorkerMain.memory.js",
+      "before": 0,
+      "after": 97975,
+      "sha256": "d9735e3642f589cb48346e6640f5639af8aa58dd4461b095cdd280d0dc4cd798",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/activity-bar-worker/dist/activityBarWorkerMain.memory.js",
+      "before": 0,
+      "after": 99230,
+      "sha256": "da86584595ea0ce481be9c411e42041bc9b35f0ae72e72630510c3c55bfab1d9",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/about-view-worker/dist/aboutWorkerMain.memory.js",
+      "before": 0,
+      "after": 61370,
+      "sha256": "b665cbd7ec59d90914116c5b56088239353979e97974bc8d74fd2571bc1a6ebb",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/extensions/builtin.git/git-worker/dist/gitWorkerMain.memory.js",
+      "before": 0,
+      "after": 90508,
+      "sha256": "eaf2b12012d4bad9c5d0177b127081eacdbfcb75c505cba39eff8bca2c9dfe87",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/extensions/builtin.git/dist/gitMain.memory.js",
+      "before": 0,
+      "after": 99496,
+      "sha256": "cfe1f0b765cc9c027697eebde85c80e489605a8ef4983b5de279d824cfd86821",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "config.json",
+      "before": 238722,
+      "after": 244584,
+      "beforeSha256": "94dd7f477bd24609d1cc9e0c6a5fd89d83c45f67a75e1f4bd569d34682a13645",
+      "sha256": "b41d6d1b77bc7b4e49b73705b0a9e08effa0ca854edfc859261d10ea54c639b3",
+      "variant": "renderer-chunks"
+    },
+    {
+      "file": "static/9637939/packages/renderer-process/dist/rendererProcessMain.js",
+      "before": 695056,
+      "after": 695183,
+      "beforeSha256": "91b74e3a92997d05ad3a9354b0219a21ffe83a644b640e9c59c5ef22baa12df5",
+      "sha256": "165dd17c131c6254f4b9d3dd68c3e22eeb78345b2a0e8a30ac7016246d56283a",
+      "variant": "renderer-chunks"
+    }
+  ],
+  "timestamp": "2026-09-14T10:00:49.357Z"
+}
