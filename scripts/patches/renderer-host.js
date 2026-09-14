@@ -3,8 +3,12 @@ export const createWorkerClass = (baseUrl, mode) => class LocalWorker extends Ev
   constructor(input, options = {}) {
     super()
     const url = new URL(input, baseUrl)
+    const record = {url:url.href, name:options.name || '', state:'loading'}
+    ;(globalThis.__memoryChunks ||= []).push(record)
+    this.record = record
     const {port1, port2} = new MessageChannel()
     this.port = port1
+    this.childPort = port2
     this.closed = false
     this.onmessage = null
     port1.onmessage = event => {
@@ -15,6 +19,7 @@ export const createWorkerClass = (baseUrl, mode) => class LocalWorker extends Ev
     const own = Object.create(null)
     Object.assign(own, {
       location: url,
+      fonts: document.fonts,
       name: options.name || '',
       WorkerGlobalScope: function WorkerGlobalScope() {},
       Worker: createWorkerClass(url, mode),
@@ -26,17 +31,20 @@ export const createWorkerClass = (baseUrl, mode) => class LocalWorker extends Ev
       fetch: (resource, options) => fetch(typeof resource === 'string' ? new URL(resource, url) : resource, options),
     })
     const scope = new Proxy(own, {
-      get(target, key) { if (key === 'self' || key === 'globalThis') return scope; return key in target ? target[key] : globalThis[key] },
+      get(target, key) { if (key === 'self' || key === 'globalThis') return scope; if (key in target) return target[key]; const value = globalThis[key]; return typeof value === 'function' && typeof key === 'string' && /^[a-z]/.test(key) ? value.bind(globalThis) : value },
       set(target, key, value) { target[key] = value; if (key === 'onmessage') port2.onmessage = value; return true },
     })
     port2.start()
     const chunk = new URL(url)
     chunk.pathname = chunk.pathname.replace(/\.js$/, '.memory.js')
-    import(chunk.href).then(module => { if (!this.closed) return module.default(scope) }).catch(error => {
+    import(chunk.href).then(module => { if (!this.closed) { record.state = 'loaded'; return module.default(scope) } }).catch(error => {
+      record.state = 'failed'
       console.error('Memory worker chunk failed', url.href, error)
-      this.dispatchEvent(new ErrorEvent('error', {message: error.message, error}))
+      const event = new ErrorEvent('error', {message: error.message, error})
+      this.dispatchEvent(event)
+      this.onerror?.(event)
     })
   }
   postMessage(data, transfer) { this.port.postMessage(data, transfer) }
-  terminate() { this.closed = true; this.port.close() }
+  terminate() { this.record.state = 'terminated'; this.closed = true; this.port.close(); this.childPort.close() }
 }

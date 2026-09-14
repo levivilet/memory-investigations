@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { minify } from 'terser'
 import { rollup } from 'rollup'
 const mode = process.argv[2]
+const receiptDirectory = process.env.MEMORY_PATCH_RECEIPTS || 'results'
 const app = path.resolve('vendor/benchmark/.tmp/apps/lvce/usr/lib/lvce/resources/app')
 const config = JSON.parse(await readFile(path.join(app, 'config.json')))
 const lock = JSON.parse(await readFile('vendor/benchmark/editors.lock.json'))
@@ -23,7 +24,15 @@ const replace = (text, from, to) => {
   if (text.split(from).length !== 2) throw new Error(`Expected exactly one patch anchor: ${from}`)
   return text.replace(from, to)
 }
-if (['shared-in-main', 'services-in-main'].includes(mode)) {
+if (mode === 'combined') {
+  // Git is patched before chunk generation so its changed activation code is included.
+  for (const variant of ['services-in-main', 'lazy-git', 'renderer-chunks']) {
+    execFileSync(process.execPath, ['scripts/patch-app.js', variant], {stdio:'inherit', env:{...process.env, MEMORY_PATCH_RECEIPTS:'.tmp/combined-preparation'}})
+    const receipt = `.tmp/combined-preparation/${variant}-preparation.json`
+    changes.push(...JSON.parse(await readFile(receipt)).changes.map(change => ({...change, variant})))
+    await rm(receipt)
+  }
+} else if (['shared-in-main', 'services-in-main'].includes(mode)) {
   await cp('scripts/patches/process-host.cjs', path.join(app, 'memory-process-host.cjs'))
   const host = JSON.stringify(path.join(app, 'memory-process-host.cjs'))
   await edit('packages/main-process/dist/mainProcessMain.js', text => {
@@ -56,12 +65,22 @@ if (['shared-in-main', 'services-in-main'].includes(mode)) {
       const globalThis = __scope, self = __scope, Worker = __scope.Worker, WorkerGlobalScope = __scope.WorkerGlobalScope;
       const window = undefined, document = undefined, location = __scope.location;
       const postMessage = __scope.postMessage, addEventListener = __scope.addEventListener, removeEventListener = __scope.removeEventListener, close = __scope.close, fetch = __scope.fetch;
-      ${source}
+      await (async () => { ${source} })();
     }\n`
     const relative = file.replace(/\.js$/, '.memory.js')
     await writeFile(path.join(app, relative), chunk)
     changes.push({file:relative, before:0, after:Buffer.byteLength(chunk), sha256:sha(chunk)})
   }
+  await edit('config.json', text => {
+    const updated = JSON.parse(text)
+    const header = updated.files[`/${config.commit}/packages/renderer-process/dist/rendererProcessMain.js`]
+    updated.files[`/${config.commit}/js/memory-renderer-host.js`] = header
+    for (const headers of Object.values(updated.headers)) {
+      if (headers['Content-Type'] === 'text/html' && headers['Content-Security-Policy'] && !headers['Content-Security-Policy'].includes('connect-src')) headers['Content-Security-Policy'] += " connect-src 'self';"
+    }
+    for (const entry of entries) updated.files[`/${config.commit}/${entry.replace(/\.js$/, '.memory.js')}`] = header
+    return JSON.stringify(updated, null, 2) + '\n'
+  })
   await edit(`${base}/packages/renderer-process/dist/rendererProcessMain.js`, text => `import {createWorkerClass} from '../../../js/memory-renderer-host.js';\nconst Worker = createWorkerClass(location.href, 'all');\n` + text)
 } else if (mode === 'lazy-git') {
   const gitDetection = await readFile('scripts/patches/git-detection.js', 'utf8')
@@ -82,9 +101,16 @@ if (['shared-in-main', 'services-in-main'].includes(mode)) {
   for (const file of await readdir(app, {recursive:true})) {
     if (file.endsWith('.map')) { await rm(path.join(app, file)); changes.push({file, removed: true}); continue }
     if (!/\.(m?js|cjs)$/.test(file)) continue
-    await edit(file, async text => (await minify(text, {module: /(^|\n)\s*(import |export )/.test(text), keep_fnames: true, keep_classnames: true, compress: {passes: 2}, mangle: true, sourceMap: false, format: {comments: /^!/}})).code + '\n')
+    let directory = path.dirname(path.join(app, file)), module = file.endsWith('.mjs')
+    if (!/\.(mjs|cjs)$/.test(file)) for (;;) {
+      try { module = JSON.parse(await readFile(path.join(directory, 'package.json'))).type === 'module'; break }
+      catch (error) { if (error.code !== 'ENOENT') throw error }
+      if (directory === app) break
+      directory = path.dirname(directory)
+    }
+    await edit(file, async text => (await minify({[file]:text}, {module, keep_fnames: true, keep_classnames: true, compress: {passes: 2}, mangle: true, sourceMap: false, format: {comments: /^!/}})).code + '\n')
   }
 } else { throw new Error(`Unknown patch experiment ${mode}`) }
-await mkdir('results', {recursive:true})
-await writeFile(`results/${mode}-preparation.json`, JSON.stringify({mode, applicationCommit: config.commit, electronVersion: actual, runtimeArchiveSha256: runtime.sha256, applicationArchiveSha256: lock.find(e => e.id === 'lvce').sha256, changes, timestamp: new Date().toISOString()}, null, 2) + '\n')
+await mkdir(receiptDirectory, {recursive:true})
+await writeFile(`${receiptDirectory}/${mode}-preparation.json`, JSON.stringify({mode, applicationCommit: config.commit, electronVersion: actual, runtimeArchiveSha256: runtime.sha256, applicationArchiveSha256: lock.find(e => e.id === 'lvce').sha256, changes, timestamp: new Date().toISOString()}, null, 2) + '\n')
 console.log(mode, changes.length, 'patched files')

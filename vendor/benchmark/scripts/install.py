@@ -67,7 +67,10 @@ def install():
         if digest != editor['sha256']:
             raise ValueError(f"Checksum mismatch: {archive}; remove it and retry")
         destination = target / editor['id']
-        destination.mkdir(exist_ok=True)
+        # Independent monkeypatch trials must not inherit generated files from an earlier mode.
+        if destination.exists():
+            shutil.rmtree(destination)
+        destination.mkdir()
         if archive.suffix == '.deb':
             subprocess.run(['dpkg-deb', '-x', str(archive), str(destination)], check=True)
         elif archive.suffix == '.zip':

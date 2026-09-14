@@ -144,3 +144,36 @@ memory target is represented as a passing product test.
 See the report for prioritized recommendations and the exact remaining uncertainties.
 Vendored benchmark code is MIT licensed; its original license and commit are preserved
 in `vendor/benchmark/`. This repository's original code is also MIT licensed.
+
+## Production monkeypatch experiments
+
+The current Actions matrix extracts the pinned **production v0.114.2 Debian package** for each job, replaces its runtime with checksum-pinned **Electron 44.3.0**, and prepares a minimal application in a copy of that exact runtime. No production repository is changed. The installer clears the extracted installation before unpacking, so generated chunks from an earlier experiment cannot contaminate a later control.
+
+Each job runs three unmodified trials per app, applies one patch, and runs three changed trials per app. A separate debugger/GC run checks the intended service/worker topology. `lazy-git` and `combined` also open a fresh Git repository and assert that Git activates. All profiles and application processes are isolated and disposed by the existing harness.
+
+```sh
+nice npm ci
+python3 vendor/benchmark/scripts/install.py --editors lvce
+node scripts/prepare-experiment.js matched
+bash vendor/benchmark/scripts/run.sh --editors lvce,basic-electron --repeats 3 --budgets '' --refinement-iterations 0 --output "$PWD/results/renderer-chunks-control.json"
+node scripts/patch-app.js renderer-chunks
+bash vendor/benchmark/scripts/run.sh --editors lvce,basic-electron --repeats 3 --budgets '' --refinement-iterations 0 --output "$PWD/results/renderer-chunks.json"
+node scripts/enable-diagnostics.js
+bash vendor/benchmark/scripts/run.sh --editors lvce --repeats 1 --budgets '' --refinement-iterations 0 --sample-seconds 15 --output "$PWD/results/renderer-chunks-diagnostic.json"
+node scripts/check-architecture.js renderer-chunks results/renderer-chunks-diagnostic.json
+```
+
+Repeat from installation for a different mode. Available modes:
+
+| Mode | Intervention |
+| --- | --- |
+| `shared-in-main` | Original shared service in Electron main through MessageChannelMain |
+| `services-in-main` | Shared and filesystem services in Electron main |
+| `renderer-chunks` | Core workers and built-in Git workers as on-demand renderer modules |
+| `lazy-git` | Automatic Git activation guarded by local repository detection; explicit commands remain available |
+| `rollup-terser` | Rollup main entry + Terser across shipped JS; no source maps |
+| `combined` | Services in main, Git guard, then renderer chunks |
+
+These are experimental adapters, not patches ready to ship. Renderer consolidation changes event-loop contention, globals and isolation/CSP. Process consolidation needs further lifecycle and blocking-work tests. The Git guard rechecks on activation requests but does not itself watch for external repository creation. The positive Git scenario validates startup activation and edit/save, not all Git features. See the report for measured effects and remaining acceptance work.
+
+Patch receipts record application/runtime archive hashes and changed-file hashes. `scripts/import-patch-results.js <downloaded-artifacts-directory>` validates the entire paired CI set and architecture diagnostics before copying JSON into `data/`. It rejects mixed commits/runs, incomplete trials and patches that leave the supposedly removed runtimes active. `npm run build` generates the HTML tables from those JSON files; failed prototypes never become zero-memory rows. Historical esbuild/empty-worker/Git-disabled results remain available separately.
