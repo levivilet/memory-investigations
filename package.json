@@ -1,0 +1,1 @@
+{"name":"memory-investigations","version":"0.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build-report.js","test":"node --test tests/*.test.js"},"devDependencies":{"esbuild":"0.25.10"},"engines":{"node":">=24"}}
