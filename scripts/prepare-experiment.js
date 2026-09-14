@@ -11,12 +11,15 @@ const pkg = JSON.parse(await readFile(path.join(lvce, 'resources/app/package.jso
 const lockPath = path.join(root, 'editors.lock.json')
 const lock = JSON.parse(await readFile(lockPath))
 const basic = lock.find(e => e.id === 'basic-electron')
+const runtime = lock.find(e => e.id === 'lvce').runtime
+if (!runtime || basic.version !== runtime.version || basic.sha256 !== runtime.sha256) throw new Error('LVCE and basic Electron must use the same pinned runtime')
+const electronVersion = runtime.version.replace('Electron ', '')
 await rm(path.join(apps, 'basic-electron'), { recursive: true, force: true })
 await cp(lvce, path.join(apps, 'basic-electron'), { recursive: true })
 await rm(path.join(apps, 'basic-electron/resources/app'), { recursive: true })
 await rm(path.join(apps, 'basic-electron/resources/default_app.asar'), { force: true })
 await cp(path.join(root, 'basic-electron'), path.join(apps, 'basic-electron/resources/app'), { recursive: true })
-Object.assign(basic, { binary: 'lvce', version: `Electron ${pkg.electronVersion} (LVCE runtime)`, runtimeArchiveSha256: lock.find(e => e.id === 'lvce').sha256, notes: 'Minimal app installed into a copy of the exact LVCE runtime; original Electron 40 download metadata is retained as historical provenance only.' })
+Object.assign(basic, { binary: 'lvce', version: runtime.version, runtimeArchiveSha256: runtime.sha256, notes: 'Minimal app installed into a copy of the exact LVCE runtime; both apps use the checksum-pinned Electron 44.3.0 runtime override.' })
 const changes = []
 if (mode === 'no-git') {
   const config = JSON.parse(await readFile(path.join(lvce, 'resources/app/config.json')))
@@ -43,5 +46,5 @@ if (mode === 'workers') {
 }
 await writeFile(lockPath, JSON.stringify(lock, null, 2) + '\n')
 await mkdir('results', {recursive: true})
-await writeFile(`results/${mode}-preparation.json`, JSON.stringify({ mode, electronVersion: pkg.electronVersion, changes, timestamp: new Date().toISOString() }, null, 2))
-console.log(mode, pkg.electronVersion, changes.length, 'transformed files')
+await writeFile(`results/${mode}-preparation.json`, JSON.stringify({ mode, electronVersion, stockApplicationElectronVersion: pkg.electronVersion, changes, timestamp: new Date().toISOString() }, null, 2))
+console.log(mode, electronVersion, changes.length, 'transformed files')

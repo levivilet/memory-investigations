@@ -11,7 +11,10 @@ raw JSON, source inventory, and a generated interactive HTML report.
 
 The initial benchmark is a frozen September 13, 2026 capture, not the screenshot's
 older capture. LVCE bundles Electron 43.1.0; the original basic app uses 40.0.0.
-The investigation therefore builds a basic editor from the exact LVCE runtime.
+New runs use a checksum-pinned Electron 44.3.0 runtime for both LVCE and the basic
+editor, preserving LVCE v0.114.2 application bytes. The bundled version in the stock
+application config remains 43.1.0; the runtime override and its checksum are recorded
+separately. Existing evidence stays labeled with its original runtime until rerun.
 
 ## Build the report
 
@@ -63,9 +66,10 @@ Replace `minified` with `workers` or `no-git` for the other interventions. Befor
 starting another experiment, restore the official LVCE resources by rerunning
 `install.py --editors lvce`, then prepare `matched` and measure new controls.
 Do not reuse a minified/disabled/diagnostically patched LVCE as the control.
-The preparation script copies the installed LVCE runtime into an isolated basic-app
-directory. Original Electron-40 download metadata is retained in the lock with an
-explicit runtime provenance override; **only install `lvce` for matched experiments**.
+The installer replaces the entire LVCE runtime with checksum-verified Electron 44.3.0,
+preserving only its application resources. The preparation script copies that runtime
+into an isolated basic-app directory and requires matching version/hash pins.
+**Install `lvce` before preparing matched experiments**.
 Download checksums, LVCE application config, per-file transformation hashes and source
 inventory allow auditing the exact versions. No product repository is modified.
 
