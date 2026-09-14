@@ -1,6 +1,7 @@
 {
   "mode": "minified",
-  "electronVersion": "43.1.0",
+  "electronVersion": "44.3.0",
+  "stockApplicationElectronVersion": "43.1.0",
   "changes": [
     {
       "file": "static/9637939/packages/update-worker/dist/updateWorkerMain.js",
@@ -8589,5 +8590,5 @@
       "sha256": "b70394c4fc1a6d4dfd2d6d91139b9af55e566ff71f67b374a10d4da2107e033a"
     }
   ],
-  "timestamp": "2026-09-14T06:37:52.003Z"
+  "timestamp": "2026-09-14T06:57:24.724Z"
 }

@@ -37,7 +37,7 @@ export function analyze(data) {
       }
     }
     const representative = trials.length ? [...trials].sort((a,b) => median(a.samples.filter(s=>s.phase==='idle').map(s=>s.pss))-median(b.samples.filter(s=>s.phase==='idle').map(s=>s.pss)))[Math.floor(trials.length/2)] : null
-    editors.push({id:editor.id, version:editor.version, attempted:attempts.length, passed:trials.length, qualified:trials.length === data.protocol.repeats && trials.length === attempts.length && new Set(trials.map(t=>t.repeat)).size === trials.length && trials.length >= 3, metrics, roles, representative:representative?.samples.find(s=>s.phase==='idle'), lowestTestedBudgetMiB:data.summaries?.find(s=>s.editor===editor.id)?.lowestTestedBudgetMiB ?? null})
+    editors.push({id:editor.id, version:editor.version + (editor.runtime ? ` / ${editor.runtime.version} override` : ''), attempted:attempts.length, passed:trials.length, qualified:trials.length === data.protocol.repeats && trials.length === attempts.length && new Set(trials.map(t=>t.repeat)).size === trials.length && trials.length >= 3, metrics, roles, representative:representative?.samples.find(s=>s.phase==='idle'), lowestTestedBudgetMiB:data.summaries?.find(s=>s.editor===editor.id)?.lowestTestedBudgetMiB ?? null})
   }
   return {capturedAt:data.capturedAt, commit:data.commit, runUrl:data.runUrl, protocol:data.protocol, editors}
 }

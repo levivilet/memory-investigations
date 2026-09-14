@@ -1,126 +1,107 @@
-# Why LVCE exceeds basic Electron in the plain-file benchmark
+# Memory findings with Electron 44.3.0
 
-The headline result is **582.9 MiB PSS for LVCE versus 295.6 MiB for basic Electron**
-on the same CI runner and the exact same Electron 43.1.0 runtime: a **287.3 MiB gap**.
-Both applications passed all three trials. [Raw matched trials](data/matched.json).
+Both LVCE and the basic app now run **Electron 44.3.0**, from the same verified
+archive. LVCE's v0.114.2 application resources remain unchanged; its bundled
+Electron 43.1.0 runtime is replaced only inside the benchmark installation.
+The report labels this as a runtime override rather than an unmodified official build.
 
-## What explains the difference
+The matched CI result is **589.7 MiB PSS for LVCE versus 294.9 MiB for basic Electron**,
+a **294.8 MiB gap**. Both apps passed all three fresh launch/edit/save trials.
+[Raw matched evidence](data/matched.json) ·
+[Successful experiment run](https://github.com/levivilet/memory-investigations/actions/runs/34815358324).
 
-| Process role | LVCE PSS MiB | Basic PSS MiB |
-| --- | ---: | ---: |
-| Four Node utility services | 173.8 | 0 |
-| Renderer, including web workers | 187.4 | 57.7 |
-| Main process | 88.4 | 84.4 |
-| GPU process | 87.4 | 92.7 |
-| Network service | 23.3 | 29.1 |
-| Zygotes | 22.1 | 30.8 |
+## Where the memory goes
 
-Independent role medians do not sum exactly to whole-app medians. Additional processes
-change shared-page apportionment, so a removed process's full PSS is not a guaranteed
-saving. The large positive terms are Node services and the renderer, not main-process
-JavaScript. RSS exaggerates the gap by counting shared mappings repeatedly.
+- Four Node utility services: **166.6 MiB PSS** in LVCE.
+- Renderer including 17 dedicated workers: **200.6 MiB**, versus **59.0 MiB** in
+  basic Electron; **141.6 MiB extra**.
+- Main process: **92.7 MiB**, versus **85.2 MiB** in basic Electron.
 
-A separate diagnostic identifies the four Node utilities as **shared-process,
-File System Process, File Watcher Process and Extension builtin.git: Git**. The
-renderer starts **17 dedicated workers**, including two Git workers. These are
-threads/isolates inside the renderer, not 17 extra OS processes. The app turns the
-single-file CLI argument into a URL that also specifies its parent as a workspace.
-Consequently, a plain-file workload still activates workspace/Git infrastructure.
-[Named process/worker probe](data/diagnostic-ci.json).
+Role medians are independent and need not sum exactly to the whole-app median.
+Shared pages are redistributed across processes. Current process PSS is not the
+same as the memory a future consolidation would save: useful data and work must
+move somewhere.
 
-## Hypotheses and interventions
+The separate diagnostic identifies shared-process, File System Process, File Watcher
+Process and the built-in Git extension's Node process. It confirms Electron 44.3.0
+and captures all 17 worker heaps, including two Git workers. Workers are threads
+inside the renderer, not additional OS processes.
+[Diagnostic evidence](data/diagnostic-ci.json).
 
-1. **Service activation:** if Git startup contributes memory, disabling the packaged
-   Git extension should remove its Node runtime and worker targets. Observed: LVCE
-   falls from **582.6 to 536.9 MiB PSS**, processes **10 → 9**, workers **17 → 15**.
-   This passes all edit/save checks. Basic control drifts downward **3.1 MiB**, so
-   the raw **45.7 MiB** reduction should be interpreted with that uncertainty.
-   Proposed product direction: cheap repository detection and selective activation,
-   preserving Git commands, status, initialization and decorations. This experiment
-   removes functionality and is not itself a shipping patch.
-2. **Worker fixed cost:** if isolates/threads matter beyond loaded application code,
-   adding empty workers to basic Electron should increase renderer memory without
-   increasing process count. Observed: **20 workers add 38.6 MiB PSS**, with **6
-   processes unchanged**. Real-worker consolidation needs its own functional and
-   latency tests; multiplying this cost by 17 is not an exact savings prediction.
-3. **Unminified source:** if whitespace/identifiers dominate the excess, minifying
-   the shipped app should significantly reduce memory. Observed: source shrinks
-   **44.0 → 27.4 MiB (37.8%)**, but LVCE changes **+2.2 MiB PSS** while its unchanged
-   basic control changes **+2.0 MiB**. No meaningful RAM improvement is established.
-   We used esbuild 0.25.10 with names retained, preserved module boundaries, no
-   rebundling, no dependency removal and no code splitting. This does not rule out
-   savings from different lazy-loading or build strategies.
-4. **Electron version:** the published benchmark compared LVCE's Electron **43.1.0**
-   with basic Electron **40.0.0**. Matching the runtime leaves a large gap and makes
-   the basic app smaller in these measurements. Version differences cannot explain
-   the application's extra footprint. The old-vs-new runtime delta is cross-run and
-   is not an isolated runtime benchmark.
-5. **Large live JS heap / too much code:** the release has 1,431 JS files totaling
-   about 44 MiB, but its main-process bundle is only about 226 KiB. Largest optional
-   dependencies on disk are not evidence of loaded/retained code. Worker heap
-   diagnostics find considerably less retained JS than renderer PSS would imply.
+## Repeated, same-host interventions
 
-Each intervention has three fresh unmodified controls and three changed trials per
-app on its own runner. All results are from
-[Actions run 34813990112](https://github.com/levivilet/memory-investigations/actions/runs/34813990112).
-Controls precede interventions; trial order is shuffled within blocks. Cache and
-host drift remain limitations, and ranges are not confidence intervals.
+| Intervention | Control PSS MiB | Changed PSS MiB | Change |
+| --- | ---: | ---: | ---: |
+| Disable built-in Git | 583.8 | 550.5 | −33.3 |
+| Add 20 empty workers to basic Electron | 295.0 | 344.1 | +49.0 |
+| Minify LVCE JavaScript | 588.2 | 590.4 | +2.2 |
 
-## What worker heap numbers do and do not prove
+Each intervention has three control trials and three changed trials per app on its
+own runner. All edit/save probes passed. The same untouched basic app changes by
+−2.0 MiB in the Git job and +1.0 MiB in the minification job, illustrating background
+and cache drift. Control blocks precede intervention blocks; ranges are not confidence
+intervals, and the experiments are not fully randomized crossover trials.
 
-The first diagnostic showed roughly 12 MiB used in extension management. This was
-allocated heap, not proof of live retained objects. A later separate diagnostic
-showed **5.1 → 0.9 MiB** after forced collection, with all 17 worker heaps totaling
-about **11.8 MiB after GC**. There is substantial temporary allocation and spare
-capacity; no leak is established by these captures.
+Git disablement removes one process and two workers, leaving 9 processes and 15 workers.
+It is a diagnostic ablation that removes functionality, not a production fix.
+Twenty empty workers leave the basic app at six processes, showing that worker
+runtimes consume memory without increasing OS process count. Their cost cannot be
+multiplied by the number of real LVCE workers to predict exact consolidation savings.
 
-The renderer also contains native V8/Blink structures, thread stacks, code, backing
-storage, caches, graphics resources and allocator retention. JS heap is a subset of
-renderer memory, not a separate amount to add. Debugger attachment changes memory,
-and its sample timing differs; these probes are deliberately excluded from baseline
-comparisons. Electron main heap statistics use KiB; CDP heap statistics use bytes.
-[GC diagnostic](data/diagnostic-gc.json).
+Minification reduces JavaScript disk size from **44.0 to 27.4 MiB (37.8%)** but does
+not demonstrate a meaningful resident-memory improvement. It preserves module
+boundaries and function/class names, with no lazy import changes or rebundling.
 
-## What to improve first
+## Heap interpretation
 
-1. Avoid activating the whole Git runtime for a non-repository plain file. Validate
-   repository discovery, nesting, init, status/decoration updates and explicit commands.
-2. Prototype consolidating lightweight UI workers, while retaining heavy editor work
-   isolation. Measure typing latency, startup, contention and lifecycle correctness.
-3. Experiment with filesystem/watcher service consolidation. Do not block Electron
-   main with synchronous filesystem work. Test backpressure, crash recovery,
-   cancellation, huge trees and multiple windows. Useful state must move somewhere;
-   deleting a process does not save its entire present PSS.
-4. Investigate extension metadata caching/cloning and startup allocation bursts using
-   allocation profiles and retaining paths; large pre-GC heaps alone are insufficient.
-5. Treat minification as a packaging/startup experiment with measured benefits, not a
-   presumed hundred-megabyte memory fix. Test lazy imports and code splitting separately.
-6. Trace native allocations and repeated worker/view/workspace lifecycle operations.
-   Explain the remaining renderer footprint before claiming an exact byte-level model.
+Extension management reports **14.7 MiB used before GC and 0.7 MiB after GC** in the
+instrumented run. All 17 workers together report about **11.8 MiB JS heap after GC**.
+Large allocated heaps are not proof of large retained object graphs or a leak.
+Debugger attachment and forced GC change memory, so diagnostic totals are excluded
+from normal benchmark comparisons. CDP heap values are bytes; Electron main heap
+statistics are KiB.
 
-The Git ablation still leaves LVCE around **537 MiB**, above the published Zed result
-of **374.7 MiB**. This investigation does not achieve or guarantee a below-Zed build.
-It establishes specific measurable targets for follow-up product changes. Savings
-from overlapping interventions must not be summed without a combined test.
+Native V8/Blink state, stacks, compiled code, buffers, graphics, spare heap capacity
+and allocator retention also contribute to renderer memory. Worker heaps are already
+contained in renderer PSS and must not be added again. Native allocation traces,
+retaining paths and repeated lifecycle measurements remain follow-up work.
 
-## Accounting and benchmark scope
+## What to improve next
 
-The old basic-app **316.8 MiB** is uncapped idle PSS. Its **133 MiB** result is the
-lowest tested cgroup cap surviving a specific no-swap launch/edit/save protocol.
-These are different accounting systems and are not universal minimum host RAM or
-an architectural lower bound. File pages may be charged outside the app group after
-archive extraction while still contributing to process PSS. Shared pages are charged
-once by cgroups but apportioned by PSS. MiB = 1,048,576 bytes.
+1. Test selective Git activation after cheap repository detection or an explicit
+   command. Preserve init, nested repository detection, status updates and decorations.
+2. Prototype consolidating lightweight UI workers, while retaining isolation for
+   heavy work. Measure typing latency, contention, startup and cleanup alongside memory.
+3. Evaluate filesystem/watcher service consolidation with cancellation, backpressure,
+   crash recovery, large-tree and multi-window coverage. Avoid synchronous work in main.
+4. Investigate extension metadata cloning and temporary startup allocation using
+   allocation traces and retaining paths. Do not treat a pre-GC heap as a leak finding.
+5. Test lazy imports and bundle splitting independently of minification.
 
-The historical published capture is dated September 13, 2026; it differs from the
-provided screenshot. It uses different runners for different editors. These new
-paired interventions compare apps on the same runner, but their results still only
-cover a 2,600-byte text file, Xvfb and software rendering. Real GPUs, large projects,
-language servers, multiple windows, startup peaks and long sessions need additional
-workloads. No physical GPU VRAM or X server/desktop memory is included.
+These measurements do not yet establish a below-Zed build. Disabling Git still leaves
+LVCE at roughly 551 MiB PSS. Independent interventions overlap and their savings
+cannot safely be added without a combined experiment.
+
+## Historical evidence and comparability
+
+The [original Electron 43.1 investigation](history/electron-43.1.0.md) is retained,
+as is its [matched baseline JSON](data/electron43-matched.json). The initial
+cross-editor dataset remains frozen as [published-benchmark.json](data/published-benchmark.json),
+with its original Electron 40 basic-app result and September 13 capture date.
+Historical numbers have not been relabeled as Electron 44.3.0 measurements.
+
+Differences between the 43.1 and 44.3 investigation runs are **not an isolated runtime
+regression experiment**: they use different runners and times. Within each new
+comparison, both apps have the same runtime and host. Tests use a 2,600-byte text
+file, Xvfb, software rendering and no swap. Real GPUs, projects, language servers,
+multiple windows and long sessions need additional workloads.
+
+The historical 316.8 MiB PSS and 133 MiB passing cgroup cap describe different
+accounting systems. They are neither universal minimum host RAM requirements nor
+architectural lower bounds. The report explains shared-page apportionment, cgroup
+first charging and why summed RSS can overstate physical memory usage.
 
 Primary references: [Linux /proc](https://www.kernel.org/doc/html/latest/filesystems/proc.html),
 [cgroup v2](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html),
 [Electron process model](https://www.electronjs.org/docs/latest/tutorial/process-model),
-[app.getAppMetrics](https://www.electronjs.org/docs/latest/api/app#appgetappmetrics),
-[pinned LVCE build helper](https://github.com/lvce-editor/lvce-editor/blob/v0.114.2/packages/build/src/parts/BundleJs/BundleJs.ts).
+[Electron 44.3.0 release](https://github.com/electron/electron/releases/tag/v44.3.0).

@@ -17,14 +17,17 @@ const first=pending[0].raw
 for(const {name,raw} of pending){
  if(!raw.runUrl || raw.runUrl!==first.runUrl || raw.commit!==first.commit)throw new Error(`Mixed Actions runs: ${name}`)
  if(raw.fixtureSha256!==first.fixtureSha256)throw new Error(`Mixed fixtures: ${name}`)
+ const lvce = raw.editors.find(e => e.id === 'lvce')
+ const basic = raw.editors.find(e => e.id === 'basic-electron')
+ if (lvce.runtime && (lvce.runtime.version !== basic.version || lvce.runtime.sha256 !== basic.runtimeArchiveSha256)) throw new Error(`Mismatched runtimes: ${name}`)
  if(name.endsWith('-control'))continue
  const control=pending.find(p=>p.name===name+'-control')?.raw
  if(control)for(const key of ['cpu','kernel','arch','logicalCpus','display'])if(raw.host[key]!==control.host[key])throw new Error(`Host mismatch in ${name}: ${key}`)
 }
-for(const {name,from} of pending)await copyFile(from,`data/${name}.json`)
 for(const name of ['minified-preparation.json','no-git-preparation.json','workers-preparation.json','diagnostic.json']){
  const matches=files.filter(f=>path.basename(f)===name)
  if(matches.length!==1)throw new Error(`Missing or ambiguous ${name}`)
- await copyFile(path.join(root,matches[0]),'data/'+(name==='diagnostic.json'?'diagnostic-ci.json':name))
+ pending.push({name:(name==='diagnostic.json'?'diagnostic-ci':name.replace('.json','')),from:path.join(root,matches[0])})
 }
+for(const {name,from} of pending)await copyFile(from,`data/${name}.json`)
 console.log('Imported complete comparison sets from',first.runUrl)
