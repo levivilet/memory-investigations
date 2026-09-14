@@ -52,7 +52,7 @@ def profile_config(editor, home):
     if editor['id'] == 'lvce':
         return ['--user-data-dir', data, '--no-sandbox', '--ozone-platform=x11']
     if editor['id'] == 'basic-electron':
-        return ['--no-sandbox', '--ozone-platform=x11', ROOT / editor['app']]
+        return ['--no-sandbox', '--ozone-platform=x11', '--user-data-dir=' + str(data), *([] if editor.get('runtimeArchiveSha256') else [ROOT / editor['app']])]
     if editor['id'] == 'theia':
         write_json(home / '.theia-ide/settings.json', {
             'workbench.startupEditor': 'none', 'files.autoSave': 'off',
