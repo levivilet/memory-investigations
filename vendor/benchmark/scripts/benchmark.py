@@ -312,6 +312,9 @@ def trial(editor, budget, repeat, args, user):
                 result['probeMs'].append(probe(group, file, marker, args.probe_timeout, window_title))
                 result['samples'].append(dict(phase='editing', seconds=time.monotonic() - started, **observe(group, result)))
                 restore(file, marker, args.probe_timeout)
+            diagnostic = home / '.local/state/diagnostics.json'
+            if diagnostic.exists():
+                result['diagnostics'] = json.loads(diagnostic.read_text())
             result['events'] = counters((group / 'memory.events').read_text())
             result['final'] = observe(group, result)
             result['pressure'] = (group / 'memory.pressure').read_text()
