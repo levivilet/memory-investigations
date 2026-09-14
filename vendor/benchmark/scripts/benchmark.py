@@ -224,7 +224,7 @@ def trial(editor, budget, repeat, args, user):
     unit = f'lvce-memory-{uuid.uuid4().hex}.service'
     result = dict(editor=editor['id'], budgetMiB=budget, repeat=repeat, status='failed',
                   samples=[], probeMs=[], invalidSamples=0, error=None)
-    artifact = args.output.parent / identity
+    artifact = args.output.parent / args.output.stem / identity
     artifact.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='lvce-memory-') as temporary:
         home = Path(temporary)

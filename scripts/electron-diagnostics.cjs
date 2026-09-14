@@ -27,12 +27,16 @@ setTimeout(async () => {
         } catch (e) { row.attachError = e.message }
         try {
           row.heap = await debug.sendCommand('Runtime.getHeapUsage', {}, sessionId)
+          await debug.sendCommand('HeapProfiler.collectGarbage', {}, sessionId)
+          row.heapAfterGc = await debug.sendCommand('Runtime.getHeapUsage', {}, sessionId)
           row.resources = await debug.sendCommand('Runtime.evaluate', { expression: '({url: self.location.href, resources: performance.getEntriesByType("resource").map(r => ({name:r.name,transferSize:r.transferSize,decodedBodySize:r.decodedBodySize}))})', returnByValue: true }, sessionId)
         } catch (e) { row.error = e.message }
       })
       evidence.renderer = { pid: wc.getOSProcessId(), url: wc.getURL(), heap: await debug.sendCommand('Runtime.getHeapUsage') }
       await debug.sendCommand('Target.setAutoAttach', { autoAttach: true, waitForDebuggerOnStart: false, flatten: true })
       evidence.dom = await debug.sendCommand('Memory.getDOMCounters')
+      await debug.sendCommand('HeapProfiler.collectGarbage')
+      evidence.renderer.heapAfterGc = await debug.sendCommand('Runtime.getHeapUsage')
     }
   } catch (e) { evidence.errors.push(e.stack) }
   setTimeout(() => {
